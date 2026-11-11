@@ -290,14 +290,14 @@ export default function CantorSection({
                           <td style={{ textAlign: "right", whiteSpace: "nowrap" }}>
                             <button
                               className="btn-acao btn-edit"
-                              title="Editar nome desta música (UPDATE)"
+                              title="Editar música"
                               onClick={() => onAbrirAtualizarMusica(m)}
                             >
                               ✏️
                             </button>
                             <button
                               className="btn-acao btn-del"
-                              title="Deletar esta música (DELETE real)"
+                              title="Excluir música"
                               onClick={() => onAbrirDeletar(m)}
                             >
                               🗑️

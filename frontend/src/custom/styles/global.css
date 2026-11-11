@@ -264,4 +264,43 @@ h1 span {
 }
 .btn-excluir:hover { background: #dc2626; }
 
-.rodape { text-align: center; font-size: 12px; margin-top: 36px; padding-bottom: 20px; }
+.rodape-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 48px;
+  padding-bottom: 28px;
+}
+.btn-mock-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-mock-toggle.mock-inativo {
+  background: #121829;
+  color: #94a3b8;
+  border: 1px solid #1e293b;
+}
+.btn-mock-toggle.mock-inativo:hover {
+  border-color: #00B0FF;
+  color: #00B0FF;
+  background: #162038;
+}
+.btn-mock-toggle.mock-ativo {
+  background: rgba(0, 230, 118, 0.12);
+  color: #00E676;
+  border: 1px solid rgba(0, 230, 118, 0.4);
+}
+.btn-mock-toggle.mock-ativo:hover {
+  background: rgba(239, 68, 68, 0.12);
+  color: #EF4444;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+.rodape { text-align: center; font-size: 12px; }

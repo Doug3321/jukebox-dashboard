@@ -9,16 +9,16 @@ class Settings(BaseSettings):
     API_PREFIX: str = "/api"
     CORS_ORIGINS: list[str] = ["http://localhost:5173"]
 
-    # "csv" enquanto o banco não está pronto; trocar para "mysql" na integração
-    DATA_SOURCE: str = "csv"
+    # Conexão direta com o Banco de Dados MySQL
+    DATA_SOURCE: str = "mysql"
     CSV_PATH: str = str(BACKEND_DIR / "data" / "datasetFiltrado.csv")
 
-    # MySQL (preenchido pelos colegas do banco via .env)
+    # Configuração MySQL
     DB_HOST: str = "localhost"
     DB_PORT: int = 3306
     DB_USER: str = "root"
-    DB_PASSWORD: str = ""
-    DB_NAME: str = "jukebox_db"
+    DB_PASSWORD: str = "root123"
+    DB_NAME: str = "jukebox"
 
     @property
     def database_url(self) -> str:

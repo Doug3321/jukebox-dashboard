@@ -4,7 +4,7 @@ export default function SqlBanner({ sqlInfo, onFechar }) {
   return (
     <div className="sql-banner">
       <div className="sql-banner-header">
-        <span className="sql-banner-tag">⚡ SQL Executado no SGBD</span>
+        <span className="sql-banner-tag">⚡ Comando SQL</span>
         <span className="sql-banner-msg">{sqlInfo.mensagem}</span>
         <button className="sql-banner-close" onClick={onFechar}>✕</button>
       </div>

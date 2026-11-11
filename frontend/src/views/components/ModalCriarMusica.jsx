@@ -27,7 +27,7 @@ export default function ModalCriarMusica({ aberto, onFechar, onSalvar, listaGene
     <div className="modal-backdrop">
       <div className="modal-content">
         <div className="modal-header">
-          <h3>➕ Adicionar Nova Música (INSERT)</h3>
+          <h3>➕ Nova Música</h3>
           <button className="modal-close" onClick={onFechar}>✕</button>
         </div>
         <form onSubmit={handleSubmit} className="modal-form">
@@ -44,7 +44,7 @@ export default function ModalCriarMusica({ aberto, onFechar, onSalvar, listaGene
 
           <div className="form-row">
             <div className="form-group">
-              <label>Artista / Cantor *</label>
+              <label>Artista *</label>
               <input
                 type="text"
                 required
@@ -61,7 +61,7 @@ export default function ModalCriarMusica({ aberto, onFechar, onSalvar, listaGene
             </div>
 
             <div className="form-group">
-              <label>Nome do Álbum *</label>
+              <label>Álbum *</label>
               <input
                 type="text"
                 required
@@ -74,7 +74,7 @@ export default function ModalCriarMusica({ aberto, onFechar, onSalvar, listaGene
 
           <div className="form-row">
             <div className="form-group">
-              <label>Gênero Musical</label>
+              <label>Gênero</label>
               <select
                 value={form.genero}
                 onChange={(e) => setForm({ ...form, genero: e.target.value })}
@@ -100,7 +100,7 @@ export default function ModalCriarMusica({ aberto, onFechar, onSalvar, listaGene
 
           <div className="form-row">
             <div className="form-group">
-              <label>Popularidade (0–100): {form.popularidade}</label>
+              <label>Popularidade: {form.popularidade}</label>
               <input
                 type="range"
                 min="0"
@@ -111,7 +111,7 @@ export default function ModalCriarMusica({ aberto, onFechar, onSalvar, listaGene
             </div>
 
             <div className="form-group">
-              <label>Dançabilidade (0.0–1.0): {form.dancabilidade}</label>
+              <label>Dançabilidade: {form.dancabilidade}</label>
               <input
                 type="range"
                 min="0"
@@ -131,8 +131,8 @@ export default function ModalCriarMusica({ aberto, onFechar, onSalvar, listaGene
               onChange={(e) => setForm({ ...form, improprio: e.target.checked })}
               style={{ width: "18px", height: "18px" }}
             />
-            <label htmlFor="improprio_check" style={{ margin: 0, cursor: "pointer" }}>
-              Conteúdo Explícito / Impróprio
+            <label htmlFor="improprio_check" style={{ margin: 0, cursor: "pointer", color: "#cbd5e1" }}>
+              Conteúdo Explícito
             </label>
           </div>
 
@@ -141,7 +141,7 @@ export default function ModalCriarMusica({ aberto, onFechar, onSalvar, listaGene
               Cancelar
             </button>
             <button type="submit" className="btn-salvar">
-              Cadastrar no Catálogo
+              Salvar Música
             </button>
           </div>
         </form>

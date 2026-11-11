@@ -39,7 +39,13 @@ export function useDashboardController() {
   const [sqlInfo, setSqlInfo] = useState(null);
 
   const [loading, setLoading] = useState(true);
-  const [usandoMock, setUsandoMock] = useState(false);
+  const [usandoMock, setUsandoMock] = useState(() => dashboardService.isMockAtivo());
+
+  const alternarMock = () => {
+    const novo = !usandoMock;
+    dashboardService.setMockAtivo(novo);
+    setUsandoMock(novo);
+  };
 
   const carregar = useCallback(async () => {
     setLoading(true);
@@ -77,9 +83,8 @@ export function useDashboardController() {
       cantores: cantores || [],
     });
 
-    setUsandoMock(res.some((r) => r.mock));
     setLoading(false);
-  }, [filtros]);
+  }, [filtros, usandoMock]);
 
   useEffect(() => {
     carregar();
@@ -179,6 +184,7 @@ export function useDashboardController() {
     filtros,
     loading,
     usandoMock,
+    alternarMock,
     atualizarFiltro,
     recarregar: carregar,
 

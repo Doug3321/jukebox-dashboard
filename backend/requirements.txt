@@ -3,6 +3,7 @@ uvicorn[standard]==0.30.6
 pydantic==2.9.2
 pydantic-settings==2.5.2
 python-dotenv==1.0.1
-# Integração com MySQL (será usada quando o banco estiver pronto)
+# Integração com MySQL
 SQLAlchemy==2.0.35
 PyMySQL==1.1.1
+cryptography>=42.0.0

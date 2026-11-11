@@ -28,7 +28,7 @@ export default function ModalAtualizar({ aberto, onFechar, onSalvar, itemPreDefi
     <div className="modal-backdrop">
       <div className="modal-content">
         <div className="modal-header">
-          <h3>✏️ Atualizar Registro (UPDATE)</h3>
+          <h3>✏️ Editar Informações</h3>
           <button className="modal-close" onClick={onFechar}>✕</button>
         </div>
         <form onSubmit={handleSubmit} className="modal-form">
@@ -98,7 +98,7 @@ export default function ModalAtualizar({ aberto, onFechar, onSalvar, itemPreDefi
               Cancelar
             </button>
             <button type="submit" className="btn-salvar">
-              Confirmar Atualização (UPDATE)
+              Salvar Alterações
             </button>
           </div>
         </form>

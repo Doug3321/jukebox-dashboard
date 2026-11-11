@@ -8,12 +8,14 @@ from sqlalchemy import create_engine
 # ==================================================
 # 1. CONFIGURACAO DO MYSQL
 # ==================================================
+import os
+from pathlib import Path
 
-USUARIO = "root"
-SENHA = "SUA_SENHA"
-HOST = "localhost"
-PORTA = "3306"
-BANCO = "jukebox"
+USUARIO = os.getenv("DB_USER", "root")
+SENHA = os.getenv("DB_PASSWORD", "root123")
+HOST = os.getenv("DB_HOST", "localhost")
+PORTA = os.getenv("DB_PORT", "3306")
+BANCO = os.getenv("DB_NAME", "jukebox")
 
 engine = create_engine(
     f"mysql+pymysql://{USUARIO}:{SENHA}@{HOST}:{PORTA}/{BANCO}",
@@ -33,9 +35,14 @@ def novo_uuid():
 # 3. LEITURA DO DATASET
 # ==================================================
 
-print("\nLendo dataset do Kaggle...")
+diretorio_atual = Path(__file__).resolve().parent
+arquivo_csv = diretorio_atual / "datasetFiltrado.csv"
+if not arquivo_csv.exists():
+    arquivo_csv = diretorio_atual / "dataset.csv"
 
-df = pd.read_csv("dataset.csv")
+print(f"\nLendo dataset de {arquivo_csv}...")
+
+df = pd.read_csv(arquivo_csv)
 
 # Colunas que serao utilizadas
 colunas = [
@@ -318,19 +325,19 @@ df_classifica = pd.DataFrame(
 
 tabelas = {
 
-    "ALBUM": pd.DataFrame(dados_album),
+    "album": pd.DataFrame(dados_album),
 
-    "ARTISTA": pd.DataFrame(dados_artista),
+    "artista": pd.DataFrame(dados_artista),
 
-    "GENERO": pd.DataFrame(dados_genero),
+    "genero": pd.DataFrame(dados_genero),
 
-    "MUSICA": pd.DataFrame(dados_musica),
+    "musica": pd.DataFrame(dados_musica),
 
-    "INTERPRETA": df_interpreta,
+    "interpreta": df_interpreta,
 
-    "LANCA": df_lanca,
+    "lanca": df_lanca,
 
-    "CLASSIFICA": df_classifica
+    "classifica": df_classifica
 
 }
 
@@ -364,13 +371,13 @@ print("==========================================")
 print("\nIniciando importacao para o MySQL...")
 
 ordem = [
-    "ALBUM",
-    "ARTISTA",
-    "GENERO",
-    "MUSICA",
-    "INTERPRETA",
-    "LANCA",
-    "CLASSIFICA"
+    "album",
+    "artista",
+    "genero",
+    "musica",
+    "interpreta",
+    "lanca",
+    "classifica"
 ]
 
 try:

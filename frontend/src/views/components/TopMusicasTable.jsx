@@ -67,14 +67,14 @@ export default function TopMusicasTable({
                 <td style={{ textAlign: "right", whiteSpace: "nowrap" }}>
                   <button
                     className="btn-acao btn-edit"
-                    title="Editar nome da música (UPDATE)"
+                    title="Editar música"
                     onClick={() => onAbrirAtualizarMusica(m)}
                   >
                     ✏️
                   </button>
                   <button
                     className="btn-acao btn-del"
-                    title="Deletar música (DELETE real)"
+                    title="Excluir música"
                     onClick={() => onAbrirDeletar(m)}
                   >
                     🗑️

@@ -200,7 +200,6 @@ class DashboardService:
         self.repo.criar(nova_musica)
 
         sql_simulado = (
-            f"-- INSERT no Schema jukebox_db (Transação Relacional)\n"
             f"INSERT INTO musica (id_musica, titulo_musica, duracao_ms, popularidade, dancabilidade, improprio, id_album)\n"
             f"VALUES ('{novo_id}', '{dados.titulo_musica}', {duracao_ms}, {dados.popularidade}, {dados.dancabilidade}, {1 if dados.improprio else 0}, '{dados.album}');\n"
             f"INSERT INTO interpreta (id_musica, id_artista) VALUES ('{novo_id}', '{dados.artista}');\n"
@@ -250,7 +249,6 @@ class DashboardService:
             return RespostaCrudDTO(sucesso=False, mensagem="Música não encontrada no catálogo.", sql_executado="")
 
         sql_executado = (
-            f"-- Exclusão Real com Integridade Referencial (ON DELETE CASCADE)\n"
             f"DELETE FROM classifica WHERE id_musica = '{id_musica}';\n"
             f"DELETE FROM interpreta WHERE id_musica = '{id_musica}';\n"
             f"DELETE FROM musica WHERE id_musica = '{id_musica}';"
@@ -258,6 +256,6 @@ class DashboardService:
 
         return RespostaCrudDTO(
             sucesso=True,
-            mensagem=f"Música '{titulo}' foi removida permanentemente do catálogo!",
+            mensagem=f"Música '{titulo}' removida com sucesso!",
             sql_executado=sql_executado
         )

@@ -17,6 +17,7 @@ export default function DashboardView() {
     filtros,
     loading,
     usandoMock,
+    alternarMock,
     atualizarFiltro,
 
     // Cantor
@@ -60,18 +61,17 @@ export default function DashboardView() {
         </div>
 
         <div className="acoes-topo">
-          {/* Botão de Adicionar Nova Música (INSERT) */}
+          {/* Botão de Adicionar Nova Música */}
           <button
             className="btn-add-musica"
             onClick={() => setModalCriarAberto(true)}
-            title="Inserir nova música no catálogo (INSERT)"
+            title="Adicionar nova música ao catálogo"
           >
             ➕ Adicionar Música
           </button>
 
           {/* Filtro de Gênero */}
           <div className="filtros">
-            {usandoMock && <span className="badge-mock">Modo offline (mock)</span>}
             <label>
               Gênero
               <select
@@ -162,8 +162,25 @@ export default function DashboardView() {
         musicaParaDeletar={musicaParaDeletar}
       />
 
-      <footer className="rodape muted">
-        DCA3604 • Banco de Dados • UFRN 2026.2 — Projeto Jukebox
+      {/* Rodapé e Botão de Ativar / Desativar Mock */}
+      <footer className="rodape-container">
+        <div className="rodape-mock-controle">
+          <button
+            type="button"
+            className={`btn-mock-toggle ${usandoMock ? "mock-ativo" : "mock-inativo"}`}
+            onClick={alternarMock}
+            title={
+              usandoMock
+                ? "Clique para desativar o mock e voltar à conexão com o banco"
+                : "Clique para ativar os dados simulados (mock)"
+            }
+          >
+            {usandoMock ? "🟢 Mock Ativado (Clique para Desativar)" : "⚪ Usar Mock"}
+          </button>
+        </div>
+        <div className="rodape muted">
+          DCA3604 • Banco de Dados • UFRN 2026.2 — Projeto Jukebox
+        </div>
       </footer>
     </div>
   );
