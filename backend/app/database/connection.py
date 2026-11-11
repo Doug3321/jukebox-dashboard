@@ -1,6 +1,5 @@
 """Conexão com o MySQL (jukebox_db).
 
-Ainda NÃO está em uso: será ativada quando o banco dos colegas estiver pronto
 (DATA_SOURCE=mysql no .env).
 """
 from sqlalchemy import create_engine
