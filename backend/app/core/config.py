@@ -11,7 +11,7 @@ class Settings(BaseSettings):
 
     # "csv" enquanto o banco não está pronto; trocar para "mysql" na integração
     DATA_SOURCE: str = "csv"
-    CSV_PATH: str = str(BACKEND_DIR / "data" / "dataset.csv")
+    CSV_PATH: str = str(BACKEND_DIR / "data" / "datasetFiltrado.csv")
 
     # MySQL (preenchido pelos colegas do banco via .env)
     DB_HOST: str = "localhost"
