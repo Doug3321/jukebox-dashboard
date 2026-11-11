@@ -1,0 +1,1735 @@
+{
+ "resumo": {
+  "total_musicas": 89741,
+  "total_artistas": 29858,
+  "total_albuns": 46590,
+  "total_generos": 114,
+  "popularidade_media": 33.2,
+  "dancabilidade_media": 0.562,
+  "duracao_media_min": 3.82,
+  "percentual_improprio": 8.6
+ },
+ "topMusicas": [
+  {
+   "id_musica": "3nqQXoyQOWXiESFLlDF1hG",
+   "titulo_musica": "Unholy (feat. Kim Petras)",
+   "artistas": [
+    "Sam Smith",
+    "Kim Petras"
+   ],
+   "nome_album": "Unholy (feat. Kim Petras)",
+   "generos": [
+    "dance",
+    "pop"
+   ],
+   "popularidade": 100,
+   "dancabilidade": 0.714,
+   "duracao_min": 2.62,
+   "improprio": false
+  },
+  {
+   "id_musica": "2tTmW7RDtMQtBk7m2rYeSw",
+   "titulo_musica": "Quevedo: Bzrp Music Sessions, Vol. 52",
+   "artistas": [
+    "Bizarrap",
+    "Quevedo"
+   ],
+   "nome_album": "Quevedo: Bzrp Music Sessions, Vol. 52",
+   "generos": [
+    "hip-hop"
+   ],
+   "popularidade": 99,
+   "dancabilidade": 0.621,
+   "duracao_min": 3.32,
+   "improprio": false
+  },
+  {
+   "id_musica": "4uUG5RXrOk84mYEfFvj3cK",
+   "titulo_musica": "I'm Good (Blue)",
+   "artistas": [
+    "David Guetta",
+    "Bebe Rexha"
+   ],
+   "nome_album": "I'm Good (Blue)",
+   "generos": [
+    "dance",
+    "edm",
+    "pop"
+   ],
+   "popularidade": 98,
+   "dancabilidade": 0.561,
+   "duracao_min": 2.92,
+   "improprio": true
+  },
+  {
+   "id_musica": "5ww2BF9slyYgNOk37BlC4u",
+   "titulo_musica": "La Bachata",
+   "artistas": [
+    "Manuel Turizo"
+   ],
+   "nome_album": "La Bachata",
+   "generos": [
+    "latin",
+    "latino",
+    "reggae",
+    "reggaeton"
+   ],
+   "popularidade": 98,
+   "dancabilidade": 0.835,
+   "duracao_min": 2.71,
+   "improprio": false
+  },
+  {
+   "id_musica": "6Sq7ltF9Qa7SNFBsV5Cogx",
+   "titulo_musica": "Me Porto Bonito",
+   "artistas": [
+    "Bad Bunny",
+    "Chencho Corleone"
+   ],
+   "nome_album": "Un Verano Sin Ti",
+   "generos": [
+    "latin",
+    "latino",
+    "reggae",
+    "reggaeton"
+   ],
+   "popularidade": 97,
+   "dancabilidade": 0.911,
+   "duracao_min": 2.98,
+   "improprio": true
+  },
+  {
+   "id_musica": "1IHWl5LamUGEuP4ozKQSXZ",
+   "titulo_musica": "Tití Me Preguntó",
+   "artistas": [
+    "Bad Bunny"
+   ],
+   "nome_album": "Un Verano Sin Ti",
+   "generos": [
+    "latin",
+    "latino",
+    "reggae",
+    "reggaeton"
+   ],
+   "popularidade": 97,
+   "dancabilidade": 0.65,
+   "duracao_min": 4.06,
+   "improprio": false
+  },
+  {
+   "id_musica": "5Eax0qFko2dh7Rl2lYs3bx",
+   "titulo_musica": "Efecto",
+   "artistas": [
+    "Bad Bunny"
+   ],
+   "nome_album": "Un Verano Sin Ti",
+   "generos": [
+    "latin",
+    "latino",
+    "reggae",
+    "reggaeton"
+   ],
+   "popularidade": 96,
+   "dancabilidade": 0.801,
+   "duracao_min": 3.55,
+   "improprio": false
+  },
+  {
+   "id_musica": "4h9wh7iOZ0GGn8QVp4RAOB",
+   "titulo_musica": "I Ain't Worried",
+   "artistas": [
+    "OneRepublic"
+   ],
+   "nome_album": "I Ain’t Worried (Music From The Motion Picture \"Top Gun: Maverick\")",
+   "generos": [
+    "piano",
+    "pop",
+    "rock"
+   ],
+   "popularidade": 96,
+   "dancabilidade": 0.704,
+   "duracao_min": 2.47,
+   "improprio": false
+  },
+  {
+   "id_musica": "5IgjP7X4th6nMNDh4akUHb",
+   "titulo_musica": "Under The Influence",
+   "artistas": [
+    "Chris Brown"
+   ],
+   "nome_album": "Indigo (Extended)",
+   "generos": [
+    "dance",
+    "pop"
+   ],
+   "popularidade": 96,
+   "dancabilidade": 0.733,
+   "duracao_min": 3.08,
+   "improprio": true
+  },
+  {
+   "id_musica": "4LRPiXqCikLlN15c3yImP7",
+   "titulo_musica": "As It Was",
+   "artistas": [
+    "Harry Styles"
+   ],
+   "nome_album": "As It Was",
+   "generos": [
+    "pop"
+   ],
+   "popularidade": 95,
+   "dancabilidade": 0.52,
+   "duracao_min": 2.79,
+   "improprio": false
+  },
+  {
+   "id_musica": "3k3NWokhRRkEPhCzPmV8TW",
+   "titulo_musica": "Ojitos Lindos",
+   "artistas": [
+    "Bad Bunny",
+    "Bomba Estéreo"
+   ],
+   "nome_album": "Un Verano Sin Ti",
+   "generos": [
+    "latin",
+    "latino",
+    "reggae",
+    "reggaeton"
+   ],
+   "popularidade": 95,
+   "dancabilidade": 0.647,
+   "duracao_min": 4.3,
+   "improprio": false
+  },
+  {
+   "id_musica": "6xGruZOHLs39ZbVccQTuPZ",
+   "titulo_musica": "Glimpse of Us",
+   "artistas": [
+    "Joji"
+   ],
+   "nome_album": "Glimpse of Us",
+   "generos": [
+    "pop"
+   ],
+   "popularidade": 94,
+   "dancabilidade": 0.44,
+   "duracao_min": 3.89,
+   "improprio": false
+  },
+  {
+   "id_musica": "6Xom58OOXk2SoU711L2IXO",
+   "titulo_musica": "Moscow Mule",
+   "artistas": [
+    "Bad Bunny"
+   ],
+   "nome_album": "Un Verano Sin Ti",
+   "generos": [
+    "latin",
+    "latino",
+    "reggae",
+    "reggaeton"
+   ],
+   "popularidade": 94,
+   "dancabilidade": 0.804,
+   "duracao_min": 4.1,
+   "improprio": true
+  },
+  {
+   "id_musica": "3JvKfv6T31zO0ini8iNItO",
+   "titulo_musica": "Another Love",
+   "artistas": [
+    "Tom Odell"
+   ],
+   "nome_album": "Long Way Down (Deluxe)",
+   "generos": [
+    "chill",
+    "pop"
+   ],
+   "popularidade": 93,
+   "dancabilidade": 0.445,
+   "duracao_min": 4.07,
+   "improprio": true
+  },
+  {
+   "id_musica": "1xzi1Jcr7mEi9K2RfzLOqS",
+   "titulo_musica": "CUFF IT",
+   "artistas": [
+    "Beyoncé"
+   ],
+   "nome_album": "RENAISSANCE",
+   "generos": [
+    "dance"
+   ],
+   "popularidade": 93,
+   "dancabilidade": 0.78,
+   "duracao_min": 3.76,
+   "improprio": true
+  },
+  {
+   "id_musica": "31i56LZnwE6uSu3exoHjtB",
+   "titulo_musica": "Neverita",
+   "artistas": [
+    "Bad Bunny"
+   ],
+   "nome_album": "Un Verano Sin Ti",
+   "generos": [
+    "latin",
+    "reggae",
+    "reggaeton"
+   ],
+   "popularidade": 93,
+   "dancabilidade": 0.876,
+   "duracao_min": 2.89,
+   "improprio": false
+  },
+  {
+   "id_musica": "7dSZ6zGTQx66c2GF91xCrb",
+   "titulo_musica": "PROVENZA",
+   "artistas": [
+    "KAROL G"
+   ],
+   "nome_album": "PROVENZA",
+   "generos": [
+    "reggae",
+    "reggaeton"
+   ],
+   "popularidade": 93,
+   "dancabilidade": 0.87,
+   "duracao_min": 3.5,
+   "improprio": false
+  },
+  {
+   "id_musica": "2QjOHCTQ1Jl3zawyYOpxh6",
+   "titulo_musica": "Sweater Weather",
+   "artistas": [
+    "The Neighbourhood"
+   ],
+   "nome_album": "I Love You.",
+   "generos": [
+    "alt-rock",
+    "alternative",
+    "pop",
+    "rock"
+   ],
+   "popularidade": 93,
+   "dancabilidade": 0.612,
+   "duracao_min": 4.01,
+   "improprio": false
+  },
+  {
+   "id_musica": "4Dvkj6JhhA12EX05fT7y2e",
+   "titulo_musica": "As It Was",
+   "artistas": [
+    "Harry Styles"
+   ],
+   "nome_album": "Harry's House",
+   "generos": [
+    "pop"
+   ],
+   "popularidade": 92,
+   "dancabilidade": 0.52,
+   "duracao_min": 2.79,
+   "improprio": false
+  },
+  {
+   "id_musica": "0WtM2NBVQNNJLh6scP13H8",
+   "titulo_musica": "Calm Down (with Selena Gomez)",
+   "artistas": [
+    "Rema",
+    "Selena Gomez"
+   ],
+   "nome_album": "Calm Down (with Selena Gomez)",
+   "generos": [
+    "pop"
+   ],
+   "popularidade": 92,
+   "dancabilidade": 0.801,
+   "duracao_min": 3.99,
+   "improprio": false
+  },
+  {
+   "id_musica": "5XeFesFbtLpXzIVDNQP22n",
+   "titulo_musica": "I Wanna Be Yours",
+   "artistas": [
+    "Arctic Monkeys"
+   ],
+   "nome_album": "AM",
+   "generos": [
+    "garage",
+    "indie",
+    "rock"
+   ],
+   "popularidade": 92,
+   "dancabilidade": 0.464,
+   "duracao_min": 3.07,
+   "improprio": false
+  },
+  {
+   "id_musica": "0mBP9X2gPCuapvpZ7TGDk3",
+   "titulo_musica": "Left and Right (Feat. Jung Kook of BTS)",
+   "artistas": [
+    "Charlie Puth",
+    "Jung Kook",
+    "BTS"
+   ],
+   "nome_album": "Left and Right (Feat. Jung Kook of BTS)",
+   "generos": [
+    "dance",
+    "pop"
+   ],
+   "popularidade": 92,
+   "dancabilidade": 0.881,
+   "duracao_min": 2.57,
+   "improprio": false
+  },
+  {
+   "id_musica": "4C6Uex2ILwJi9sZXRdmqXp",
+   "titulo_musica": "Super Freaky Girl",
+   "artistas": [
+    "Nicki Minaj"
+   ],
+   "nome_album": "Super Freaky Girl",
+   "generos": [
+    "dance",
+    "hip-hop"
+   ],
+   "popularidade": 92,
+   "dancabilidade": 0.95,
+   "duracao_min": 2.85,
+   "improprio": true
+  },
+  {
+   "id_musica": "0VjIjW4GlUZAMYd2vXMi3b",
+   "titulo_musica": "Blinding Lights",
+   "artistas": [
+    "The Weeknd"
+   ],
+   "nome_album": "After Hours",
+   "generos": [
+    "pop"
+   ],
+   "popularidade": 91,
+   "dancabilidade": 0.514,
+   "duracao_min": 3.33,
+   "improprio": false
+  },
+  {
+   "id_musica": "6i1g5ZRmJZAkDwBaUZ3f2i",
+   "titulo_musica": "Caile",
+   "artistas": [
+    "Luar La L"
+   ],
+   "nome_album": "L3tra",
+   "generos": [
+    "latin",
+    "latino",
+    "reggae",
+    "reggaeton"
+   ],
+   "popularidade": 91,
+   "dancabilidade": 0.704,
+   "duracao_min": 2.36,
+   "improprio": true
+  },
+  {
+   "id_musica": "3F5CgOj3wFlRv51JsHbxhe",
+   "titulo_musica": "Jimmy Cooks (feat. 21 Savage)",
+   "artistas": [
+    "Drake",
+    "21 Savage"
+   ],
+   "nome_album": "Honestly, Nevermind",
+   "generos": [
+    "hip-hop"
+   ],
+   "popularidade": 91,
+   "dancabilidade": 0.529,
+   "duracao_min": 3.64,
+   "improprio": true
+  },
+  {
+   "id_musica": "79HZAZNnOE97rb2hnI0XQr",
+   "titulo_musica": "LOKERA",
+   "artistas": [
+    "Rauw Alejandro",
+    "Lyanno",
+    "Brray"
+   ],
+   "nome_album": "LOKERA",
+   "generos": [
+    "latin",
+    "latino"
+   ],
+   "popularidade": 91,
+   "dancabilidade": 0.834,
+   "duracao_min": 3.25,
+   "improprio": false
+  },
+  {
+   "id_musica": "41oY4WCTj5kccfesTVFnvN",
+   "titulo_musica": "Tarot",
+   "artistas": [
+    "Bad Bunny",
+    "Jhayco"
+   ],
+   "nome_album": "Un Verano Sin Ti",
+   "generos": [
+    "latin",
+    "latino",
+    "reggae",
+    "reggaeton"
+   ],
+   "popularidade": 91,
+   "dancabilidade": 0.795,
+   "duracao_min": 3.96,
+   "improprio": true
+  },
+  {
+   "id_musica": "1Fid2jjqsHViMX6xNH70hE",
+   "titulo_musica": "Atlantis",
+   "artistas": [
+    "Seafret"
+   ],
+   "nome_album": "Tell Me It's Real (Expanded Edition)",
+   "generos": [
+    "folk"
+   ],
+   "popularidade": 90,
+   "dancabilidade": 0.4,
+   "duracao_min": 3.82,
+   "improprio": false
+  },
+  {
+   "id_musica": "2eAvDnpXP5W0cVtiI0PUxV",
+   "titulo_musica": "Dandelions",
+   "artistas": [
+    "Ruth B."
+   ],
+   "nome_album": "Safe Haven",
+   "generos": [
+    "pop"
+   ],
+   "popularidade": 90,
+   "dancabilidade": 0.609,
+   "duracao_min": 3.9,
+   "improprio": false
+  },
+  {
+   "id_musica": "4zN21mbAuaD0WqtmaTZZeP",
+   "titulo_musica": "Ferrari",
+   "artistas": [
+    "James Hype",
+    "Miggy Dela Rosa"
+   ],
+   "nome_album": "Ferrari",
+   "generos": [
+    "dance",
+    "deep-house",
+    "groove",
+    "house"
+   ],
+   "popularidade": 90,
+   "dancabilidade": 0.847,
+   "duracao_min": 3.11,
+   "improprio": false
+  },
+  {
+   "id_musica": "1ga4PztXOIw1yBbdUt2X8v",
+   "titulo_musica": "GATÚBELA",
+   "artistas": [
+    "KAROL G",
+    "Maldy"
+   ],
+   "nome_album": "GATÚBELA",
+   "generos": [
+    "reggae",
+    "reggaeton"
+   ],
+   "popularidade": 90,
+   "dancabilidade": 0.627,
+   "duracao_min": 3.49,
+   "improprio": false
+  },
+  {
+   "id_musica": "1cKHdTo9u0ZymJdPGSh6nq",
+   "titulo_musica": "I Was Never There",
+   "artistas": [
+    "The Weeknd",
+    "Gesaffelstein"
+   ],
+   "nome_album": "My Dear Melancholy,",
+   "generos": [
+    "pop"
+   ],
+   "popularidade": 90,
+   "dancabilidade": 0.323,
+   "duracao_min": 4.02,
+   "improprio": false
+  },
+  {
+   "id_musica": "1797zYiX4cKosMH836X9Gt",
+   "titulo_musica": "La Corriente",
+   "artistas": [
+    "Bad Bunny",
+    "Tony Dize"
+   ],
+   "nome_album": "Un Verano Sin Ti",
+   "generos": [
+    "latino",
+    "reggae",
+    "reggaeton"
+   ],
+   "popularidade": 90,
+   "dancabilidade": 0.663,
+   "duracao_min": 3.31,
+   "improprio": true
+  },
+  {
+   "id_musica": "58HvfVOeJY7lUuCqF0m3ly",
+   "titulo_musica": "MIDDLE OF THE NIGHT",
+   "artistas": [
+    "Elley Duhé"
+   ],
+   "nome_album": "MIDDLE OF THE NIGHT",
+   "generos": [
+    "pop"
+   ],
+   "popularidade": 90,
+   "dancabilidade": 0.41,
+   "duracao_min": 3.07,
+   "improprio": false
+  },
+  {
+   "id_musica": "4tYFy8ALRjIZvnvSLw5lxN",
+   "titulo_musica": "Party",
+   "artistas": [
+    "Bad Bunny",
+    "Rauw Alejandro"
+   ],
+   "nome_album": "Un Verano Sin Ti",
+   "generos": [
+    "latino",
+    "reggae",
+    "reggaeton"
+   ],
+   "popularidade": 90,
+   "dancabilidade": 0.829,
+   "duracao_min": 3.79,
+   "improprio": false
+  },
+  {
+   "id_musica": "75FEaRjZTKLhTrFGsfMUXR",
+   "titulo_musica": "Running Up That Hill (A Deal With God)",
+   "artistas": [
+    "Kate Bush"
+   ],
+   "nome_album": "Hounds Of Love",
+   "generos": [
+    "piano",
+    "pop",
+    "r-n-b",
+    "rock",
+    "singer-songwriter",
+    "songwriter"
+   ],
+   "popularidade": 90,
+   "dancabilidade": 0.629,
+   "duracao_min": 4.98,
+   "improprio": false
+  },
+  {
+   "id_musica": "38T0tPVZHcPZyhtOcCP7pF",
+   "titulo_musica": "STAR WALKIN' (League of Legends Worlds Anthem)",
+   "artistas": [
+    "Lil Nas X"
+   ],
+   "nome_album": "STAR WALKIN' (League of Legends Worlds Anthem)",
+   "generos": [
+    "hip-hop"
+   ],
+   "popularidade": 90,
+   "dancabilidade": 0.637,
+   "duracao_min": 3.51,
+   "improprio": true
+  },
+  {
+   "id_musica": "7DbdUf8aHSYoliSjO6LZv6",
+   "titulo_musica": "Sex, Drugs, Etc.",
+   "artistas": [
+    "Beach Weather"
+   ],
+   "nome_album": "Chit Chat",
+   "generos": [
+    "rock"
+   ],
+   "popularidade": 90,
+   "dancabilidade": 0.572,
+   "duracao_min": 3.28,
+   "improprio": false
+  },
+  {
+   "id_musica": "7MXVkk9YMctZqd1Srtv4MB",
+   "titulo_musica": "Starboy",
+   "artistas": [
+    "The Weeknd",
+    "Daft Punk"
+   ],
+   "nome_album": "Starboy",
+   "generos": [
+    "pop"
+   ],
+   "popularidade": 90,
+   "dancabilidade": 0.679,
+   "duracao_min": 3.84,
+   "improprio": true
+  },
+  {
+   "id_musica": "2rurDawMfoKP4uHyb2kJBt",
+   "titulo_musica": "Te Felicito",
+   "artistas": [
+    "Shakira",
+    "Rauw Alejandro"
+   ],
+   "nome_album": "Te Felicito",
+   "generos": [
+    "latin"
+   ],
+   "popularidade": 90,
+   "dancabilidade": 0.695,
+   "duracao_min": 2.87,
+   "improprio": false
+  },
+  {
+   "id_musica": "0T5iIrXA4p5GsubkhuBIKV",
+   "titulo_musica": "Until I Found You",
+   "artistas": [
+    "Stephen Sanchez"
+   ],
+   "nome_album": "Until I Found You",
+   "generos": [
+    "pop",
+    "singer-songwriter",
+    "songwriter"
+   ],
+   "popularidade": 90,
+   "dancabilidade": 0.539,
+   "duracao_min": 2.96,
+   "improprio": false
+  },
+  {
+   "id_musica": "0hquQWY3xvYqN4qtiquniF",
+   "titulo_musica": "Vegas (From the Original Motion Picture Soundtrack ELVIS)",
+   "artistas": [
+    "Doja Cat"
+   ],
+   "nome_album": "Vegas (From the Original Motion Picture Soundtrack ELVIS)",
+   "generos": [
+    "dance"
+   ],
+   "popularidade": 90,
+   "dancabilidade": 0.801,
+   "duracao_min": 3.05,
+   "improprio": true
+  },
+  {
+   "id_musica": "1PckUlxKqWQs3RlWXVBLw3",
+   "titulo_musica": "About Damn Time",
+   "artistas": [
+    "Lizzo"
+   ],
+   "nome_album": "About Damn Time",
+   "generos": [
+    "hip-hop"
+   ],
+   "popularidade": 89,
+   "dancabilidade": 0.836,
+   "duracao_min": 3.2,
+   "improprio": true
+  },
+  {
+   "id_musica": "27ZZdyTSQWI7Cug2d2PkqV",
+   "titulo_musica": "BILLIE EILISH.",
+   "artistas": [
+    "Armani White"
+   ],
+   "nome_album": "BILLIE EILISH.",
+   "generos": [
+    "hip-hop",
+    "indie"
+   ],
+   "popularidade": 89,
+   "dancabilidade": 0.9,
+   "duracao_min": 1.65,
+   "improprio": true
+  },
+  {
+   "id_musica": "0HqZX76SFLDz2aW8aiqi7G",
+   "titulo_musica": "Bones",
+   "artistas": [
+    "Imagine Dragons"
+   ],
+   "nome_album": "Bones",
+   "generos": [
+    "rock"
+   ],
+   "popularidade": 89,
+   "dancabilidade": 0.773,
+   "duracao_min": 2.75,
+   "improprio": false
+  },
+  {
+   "id_musica": "09mEdoA6zrmBPgTEN5qXmN",
+   "titulo_musica": "Call Out My Name",
+   "artistas": [
+    "The Weeknd"
+   ],
+   "nome_album": "My Dear Melancholy,",
+   "generos": [
+    "pop"
+   ],
+   "popularidade": 89,
+   "dancabilidade": 0.461,
+   "duracao_min": 3.81,
+   "improprio": false
+  },
+  {
+   "id_musica": "1DIXPcTDzTj8ZMHt3PDt8p",
+   "titulo_musica": "Gangsta's Paradise",
+   "artistas": [
+    "Coolio",
+    "L.V."
+   ],
+   "nome_album": "Gangsta's Paradise",
+   "generos": [
+    "funk",
+    "hip-hop"
+   ],
+   "popularidade": 89,
+   "dancabilidade": 0.647,
+   "duracao_min": 4.01,
+   "improprio": false
+  },
+  {
+   "id_musica": "72yP0DUlWPyH8P7IoxskwN",
+   "titulo_musica": "Hold Me Closer",
+   "artistas": [
+    "Elton John",
+    "Britney Spears"
+   ],
+   "nome_album": "Hold Me Closer",
+   "generos": [
+    "piano",
+    "rock"
+   ],
+   "popularidade": 89,
+   "dancabilidade": 0.667,
+   "duracao_min": 3.37,
+   "improprio": false
+  },
+  {
+   "id_musica": "4SqWKzw0CbA05TGszDgMlc",
+   "titulo_musica": "I Love You So",
+   "artistas": [
+    "The Walters"
+   ],
+   "nome_album": "I Love You So",
+   "generos": [
+    "indie"
+   ],
+   "popularidade": 89,
+   "dancabilidade": 0.575,
+   "duracao_min": 2.67,
+   "improprio": false
+  }
+ ],
+ "generos": [
+  {
+   "genero": "acoustic",
+   "total_musicas": 1000,
+   "popularidade_media": 42.48,
+   "dancabilidade_media": 0.55
+  },
+  {
+   "genero": "singer-songwriter",
+   "total_musicas": 1000,
+   "popularidade_media": 37.82,
+   "dancabilidade_media": 0.562
+  },
+  {
+   "genero": "songwriter",
+   "total_musicas": 1000,
+   "popularidade_media": 37.82,
+   "dancabilidade_media": 0.562
+  },
+  {
+   "genero": "indie-pop",
+   "total_musicas": 1000,
+   "popularidade_media": 40.66,
+   "dancabilidade_media": 0.604
+  },
+  {
+   "genero": "rock",
+   "total_musicas": 1000,
+   "popularidade_media": 18.59,
+   "dancabilidade_media": 0.544
+  },
+  {
+   "genero": "j-rock",
+   "total_musicas": 1000,
+   "popularidade_media": 40.66,
+   "dancabilidade_media": 0.509
+  },
+  {
+   "genero": "punk-rock",
+   "total_musicas": 1000,
+   "popularidade_media": 38.25,
+   "dancabilidade_media": 0.507
+  },
+  {
+   "genero": "british",
+   "total_musicas": 1000,
+   "popularidade_media": 43.8,
+   "dancabilidade_media": 0.501
+  },
+  {
+   "genero": "samba",
+   "total_musicas": 1000,
+   "popularidade_media": 38.88,
+   "dancabilidade_media": 0.575
+  },
+  {
+   "genero": "mpb",
+   "total_musicas": 1000,
+   "popularidade_media": 40.79,
+   "dancabilidade_media": 0.574
+  },
+  {
+   "genero": "r-n-b",
+   "total_musicas": 1000,
+   "popularidade_media": 36.73,
+   "dancabilidade_media": 0.614
+  },
+  {
+   "genero": "ska",
+   "total_musicas": 1000,
+   "popularidade_media": 35.14,
+   "dancabilidade_media": 0.581
+  },
+  {
+   "genero": "funk",
+   "total_musicas": 1000,
+   "popularidade_media": 32.32,
+   "dancabilidade_media": 0.678
+  },
+  {
+   "genero": "garage",
+   "total_musicas": 1000,
+   "popularidade_media": 40.93,
+   "dancabilidade_media": 0.484
+  },
+  {
+   "genero": "industrial",
+   "total_musicas": 1000,
+   "popularidade_media": 31.04,
+   "dancabilidade_media": 0.53
+  },
+  {
+   "genero": "electronic",
+   "total_musicas": 1000,
+   "popularidade_media": 44.33,
+   "dancabilidade_media": 0.653
+  },
+  {
+   "genero": "emo",
+   "total_musicas": 1000,
+   "popularidade_media": 48.13,
+   "dancabilidade_media": 0.599
+  },
+  {
+   "genero": "metalcore",
+   "total_musicas": 1000,
+   "popularidade_media": 43.48,
+   "dancabilidade_media": 0.424
+  },
+  {
+   "genero": "reggae",
+   "total_musicas": 1000,
+   "popularidade_media": 20.6,
+   "dancabilidade_media": 0.745
+  },
+  {
+   "genero": "spanish",
+   "total_musicas": 1000,
+   "popularidade_media": 37.92,
+   "dancabilidade_media": 0.604
+  },
+  {
+   "genero": "swedish",
+   "total_musicas": 1000,
+   "popularidade_media": 37.2,
+   "dancabilidade_media": 0.59
+  },
+  {
+   "genero": "country",
+   "total_musicas": 1000,
+   "popularidade_media": 17.03,
+   "dancabilidade_media": 0.555
+  },
+  {
+   "genero": "synth-pop",
+   "total_musicas": 1000,
+   "popularidade_media": 36.59,
+   "dancabilidade_media": 0.621
+  },
+  {
+   "genero": "disco",
+   "total_musicas": 1000,
+   "popularidade_media": 33.52,
+   "dancabilidade_media": 0.677
+  },
+  {
+   "genero": "techno",
+   "total_musicas": 1000,
+   "popularidade_media": 39.06,
+   "dancabilidade_media": 0.684
+  },
+  {
+   "genero": "sad",
+   "total_musicas": 1000,
+   "popularidade_media": 52.41,
+   "dancabilidade_media": 0.692
+  },
+  {
+   "genero": "rock-n-roll",
+   "total_musicas": 1000,
+   "popularidade_media": 34.44,
+   "dancabilidade_media": 0.55
+  },
+  {
+   "genero": "sertanejo",
+   "total_musicas": 1000,
+   "popularidade_media": 47.88,
+   "dancabilidade_media": 0.592
+  },
+  {
+   "genero": "pagode",
+   "total_musicas": 1000,
+   "popularidade_media": 44.3,
+   "dancabilidade_media": 0.578
+  },
+  {
+   "genero": "mandopop",
+   "total_musicas": 1000,
+   "popularidade_media": 45.02,
+   "dancabilidade_media": 0.547
+  },
+  {
+   "genero": "reggaeton",
+   "total_musicas": 1000,
+   "popularidade_media": 23.83,
+   "dancabilidade_media": 0.759
+  },
+  {
+   "genero": "tango",
+   "total_musicas": 1000,
+   "popularidade_media": 19.87,
+   "dancabilidade_media": 0.538
+  },
+  {
+   "genero": "sleep",
+   "total_musicas": 1000,
+   "popularidade_media": 35.07,
+   "dancabilidade_media": 0.168
+  },
+  {
+   "genero": "chill",
+   "total_musicas": 999,
+   "popularidade_media": 53.7,
+   "dancabilidade_media": 0.664
+  },
+  {
+   "genero": "guitar",
+   "total_musicas": 999,
+   "popularidade_media": 29.53,
+   "dancabilidade_media": 0.54
+  },
+  {
+   "genero": "folk",
+   "total_musicas": 999,
+   "popularidade_media": 38.04,
+   "dancabilidade_media": 0.559
+  },
+  {
+   "genero": "jazz",
+   "total_musicas": 999,
+   "popularidade_media": 13.59,
+   "dancabilidade_media": 0.51
+  },
+  {
+   "genero": "punk",
+   "total_musicas": 999,
+   "popularidade_media": 38.26,
+   "dancabilidade_media": 0.5
+  },
+  {
+   "genero": "grunge",
+   "total_musicas": 999,
+   "popularidade_media": 49.58,
+   "dancabilidade_media": 0.457
+  },
+  {
+   "genero": "malay",
+   "total_musicas": 999,
+   "popularidade_media": 30.37,
+   "dancabilidade_media": 0.629
+  },
+  {
+   "genero": "afrobeat",
+   "total_musicas": 999,
+   "popularidade_media": 24.41,
+   "dancabilidade_media": 0.669
+  },
+  {
+   "genero": "dub",
+   "total_musicas": 999,
+   "popularidade_media": 40.06,
+   "dancabilidade_media": 0.576
+  },
+  {
+   "genero": "alt-rock",
+   "total_musicas": 999,
+   "popularidade_media": 33.9,
+   "dancabilidade_media": 0.535
+  },
+  {
+   "genero": "alternative",
+   "total_musicas": 999,
+   "popularidade_media": 24.36,
+   "dancabilidade_media": 0.56
+  },
+  {
+   "genero": "turkish",
+   "total_musicas": 999,
+   "popularidade_media": 40.72,
+   "dancabilidade_media": 0.616
+  },
+  {
+   "genero": "world-music",
+   "total_musicas": 999,
+   "popularidade_media": 41.88,
+   "dancabilidade_media": 0.414
+  },
+  {
+   "genero": "hardcore",
+   "total_musicas": 999,
+   "popularidade_media": 36.11,
+   "dancabilidade_media": 0.547
+  },
+  {
+   "genero": "anime",
+   "total_musicas": 999,
+   "popularidade_media": 48.77,
+   "dancabilidade_media": 0.538
+  },
+  {
+   "genero": "soul",
+   "total_musicas": 999,
+   "popularidade_media": 19.81,
+   "dancabilidade_media": 0.6
+  },
+  {
+   "genero": "goth",
+   "total_musicas": 999,
+   "popularidade_media": 28.92,
+   "dancabilidade_media": 0.479
+  },
+  {
+   "genero": "death-metal",
+   "total_musicas": 999,
+   "popularidade_media": 32.18,
+   "dancabilidade_media": 0.368
+  },
+  {
+   "genero": "indian",
+   "total_musicas": 999,
+   "popularidade_media": 49.53,
+   "dancabilidade_media": 0.592
+  },
+  {
+   "genero": "house",
+   "total_musicas": 999,
+   "popularidade_media": 34.19,
+   "dancabilidade_media": 0.668
+  },
+  {
+   "genero": "french",
+   "total_musicas": 999,
+   "popularidade_media": 41.08,
+   "dancabilidade_media": 0.652
+  },
+  {
+   "genero": "breakbeat",
+   "total_musicas": 999,
+   "popularidade_media": 20.13,
+   "dancabilidade_media": 0.646
+  },
+  {
+   "genero": "ambient",
+   "total_musicas": 999,
+   "popularidade_media": 44.21,
+   "dancabilidade_media": 0.368
+  },
+  {
+   "genero": "k-pop",
+   "total_musicas": 999,
+   "popularidade_media": 56.91,
+   "dancabilidade_media": 0.648
+  },
+  {
+   "genero": "j-idol",
+   "total_musicas": 999,
+   "popularidade_media": 24.71,
+   "dancabilidade_media": 0.549
+  },
+  {
+   "genero": "gospel",
+   "total_musicas": 999,
+   "popularidade_media": 41.64,
+   "dancabilidade_media": 0.473
+  },
+  {
+   "genero": "rockabilly",
+   "total_musicas": 999,
+   "popularidade_media": 31.52,
+   "dancabilidade_media": 0.561
+  },
+  {
+   "genero": "trance",
+   "total_musicas": 999,
+   "popularidade_media": 37.49,
+   "dancabilidade_media": 0.583
+  },
+  {
+   "genero": "cantopop",
+   "total_musicas": 999,
+   "popularidade_media": 34.75,
+   "dancabilidade_media": 0.548
+  },
+  {
+   "genero": "disney",
+   "total_musicas": 999,
+   "popularidade_media": 27.53,
+   "dancabilidade_media": 0.463
+  },
+  {
+   "genero": "dubstep",
+   "total_musicas": 999,
+   "popularidade_media": 42.32,
+   "dancabilidade_media": 0.518
+  },
+  {
+   "genero": "pop-film",
+   "total_musicas": 999,
+   "popularidade_media": 59.28,
+   "dancabilidade_media": 0.597
+  },
+  {
+   "genero": "dancehall",
+   "total_musicas": 999,
+   "popularidade_media": 33.47,
+   "dancabilidade_media": 0.734
+  },
+  {
+   "genero": "progressive-house",
+   "total_musicas": 999,
+   "popularidade_media": 46.66,
+   "dancabilidade_media": 0.624
+  },
+  {
+   "genero": "happy",
+   "total_musicas": 999,
+   "popularidade_media": 21.72,
+   "dancabilidade_media": 0.553
+  },
+  {
+   "genero": "show-tunes",
+   "total_musicas": 999,
+   "popularidade_media": 31.26,
+   "dancabilidade_media": 0.464
+  },
+  {
+   "genero": "j-pop",
+   "total_musicas": 998,
+   "popularidade_media": 41.22,
+   "dancabilidade_media": 0.552
+  },
+  {
+   "genero": "piano",
+   "total_musicas": 998,
+   "popularidade_media": 45.28,
+   "dancabilidade_media": 0.455
+  },
+  {
+   "genero": "blues",
+   "total_musicas": 998,
+   "popularidade_media": 31.22,
+   "dancabilidade_media": 0.569
+  },
+  {
+   "genero": "brazil",
+   "total_musicas": 998,
+   "popularidade_media": 44.67,
+   "dancabilidade_media": 0.563
+  },
+  {
+   "genero": "metal",
+   "total_musicas": 998,
+   "popularidade_media": 43.68,
+   "dancabilidade_media": 0.464
+  },
+  {
+   "genero": "hard-rock",
+   "total_musicas": 998,
+   "popularidade_media": 42.72,
+   "dancabilidade_media": 0.482
+  },
+  {
+   "genero": "electro",
+   "total_musicas": 998,
+   "popularidade_media": 36.15,
+   "dancabilidade_media": 0.652
+  },
+  {
+   "genero": "groove",
+   "total_musicas": 998,
+   "popularidade_media": 37.83,
+   "dancabilidade_media": 0.584
+  },
+  {
+   "genero": "idm",
+   "total_musicas": 998,
+   "popularidade_media": 15.76,
+   "dancabilidade_media": 0.527
+  },
+  {
+   "genero": "minimal-techno",
+   "total_musicas": 998,
+   "popularidade_media": 34.02,
+   "dancabilidade_media": 0.729
+  },
+  {
+   "genero": "grindcore",
+   "total_musicas": 998,
+   "popularidade_media": 14.63,
+   "dancabilidade_media": 0.272
+  },
+  {
+   "genero": "bluegrass",
+   "total_musicas": 998,
+   "popularidade_media": 25.68,
+   "dancabilidade_media": 0.535
+  },
+  {
+   "genero": "deep-house",
+   "total_musicas": 998,
+   "popularidade_media": 44.79,
+   "dancabilidade_media": 0.711
+  },
+  {
+   "genero": "children",
+   "total_musicas": 998,
+   "popularidade_media": 35.12,
+   "dancabilidade_media": 0.716
+  },
+  {
+   "genero": "chicago-house",
+   "total_musicas": 998,
+   "popularidade_media": 12.33,
+   "dancabilidade_media": 0.766
+  },
+  {
+   "genero": "detroit-techno",
+   "total_musicas": 998,
+   "popularidade_media": 11.18,
+   "dancabilidade_media": 0.722
+  },
+  {
+   "genero": "heavy-metal",
+   "total_musicas": 998,
+   "popularidade_media": 26.18,
+   "dancabilidade_media": 0.428
+  },
+  {
+   "genero": "forro",
+   "total_musicas": 998,
+   "popularidade_media": 41.83,
+   "dancabilidade_media": 0.65
+  },
+  {
+   "genero": "hardstyle",
+   "total_musicas": 998,
+   "popularidade_media": 26.6,
+   "dancabilidade_media": 0.539
+  },
+  {
+   "genero": "salsa",
+   "total_musicas": 998,
+   "popularidade_media": 28.06,
+   "dancabilidade_media": 0.668
+  },
+  {
+   "genero": "study",
+   "total_musicas": 998,
+   "popularidade_media": 26.13,
+   "dancabilidade_media": 0.685
+  },
+  {
+   "genero": "trip-hop",
+   "total_musicas": 997,
+   "popularidade_media": 34.5,
+   "dancabilidade_media": 0.635
+  },
+  {
+   "genero": "indie",
+   "total_musicas": 997,
+   "popularidade_media": 38.91,
+   "dancabilidade_media": 0.587
+  },
+  {
+   "genero": "black-metal",
+   "total_musicas": 997,
+   "popularidade_media": 22.46,
+   "dancabilidade_media": 0.297
+  },
+  {
+   "genero": "power-pop",
+   "total_musicas": 996,
+   "popularidade_media": 26.92,
+   "dancabilidade_media": 0.474
+  },
+  {
+   "genero": "psych-rock",
+   "total_musicas": 996,
+   "popularidade_media": 42.9,
+   "dancabilidade_media": 0.503
+  },
+  {
+   "genero": "comedy",
+   "total_musicas": 996,
+   "popularidade_media": 24.64,
+   "dancabilidade_media": 0.577
+  },
+  {
+   "genero": "drum-and-bass",
+   "total_musicas": 996,
+   "popularidade_media": 26.63,
+   "dancabilidade_media": 0.536
+  },
+  {
+   "genero": "club",
+   "total_musicas": 995,
+   "popularidade_media": 33.38,
+   "dancabilidade_media": 0.604
+  },
+  {
+   "genero": "new-age",
+   "total_musicas": 994,
+   "popularidade_media": 29.06,
+   "dancabilidade_media": 0.348
+  },
+  {
+   "genero": "party",
+   "total_musicas": 994,
+   "popularidade_media": 21.03,
+   "dancabilidade_media": 0.667
+  },
+  {
+   "genero": "pop",
+   "total_musicas": 993,
+   "popularidade_media": 47.9,
+   "dancabilidade_media": 0.63
+  },
+  {
+   "genero": "latino",
+   "total_musicas": 993,
+   "popularidade_media": 25.83,
+   "dancabilidade_media": 0.757
+  },
+  {
+   "genero": "j-dance",
+   "total_musicas": 993,
+   "popularidade_media": 26.69,
+   "dancabilidade_media": 0.68
+  },
+  {
+   "genero": "edm",
+   "total_musicas": 993,
+   "popularidade_media": 35.14,
+   "dancabilidade_media": 0.648
+  },
+  {
+   "genero": "opera",
+   "total_musicas": 992,
+   "popularidade_media": 24.63,
+   "dancabilidade_media": 0.313
+  },
+  {
+   "genero": "hip-hop",
+   "total_musicas": 991,
+   "popularidade_media": 38.08,
+   "dancabilidade_media": 0.736
+  },
+  {
+   "genero": "kids",
+   "total_musicas": 991,
+   "popularidade_media": 14.94,
+   "dancabilidade_media": 0.779
+  },
+  {
+   "genero": "latin",
+   "total_musicas": 990,
+   "popularidade_media": 8.36,
+   "dancabilidade_media": 0.721
+  },
+  {
+   "genero": "iranian",
+   "total_musicas": 988,
+   "popularidade_media": 2.22,
+   "dancabilidade_media": 0.3
+  },
+  {
+   "genero": "honky-tonk",
+   "total_musicas": 981,
+   "popularidade_media": 16.41,
+   "dancabilidade_media": 0.572
+  },
+  {
+   "genero": "dance",
+   "total_musicas": 965,
+   "popularidade_media": 23.4,
+   "dancabilidade_media": 0.688
+  },
+  {
+   "genero": "german",
+   "total_musicas": 963,
+   "popularidade_media": 27.19,
+   "dancabilidade_media": 0.53
+  },
+  {
+   "genero": "classical",
+   "total_musicas": 933,
+   "popularidade_media": 13.52,
+   "dancabilidade_media": 0.382
+  },
+  {
+   "genero": "romance",
+   "total_musicas": 904,
+   "popularidade_media": 3.55,
+   "dancabilidade_media": 0.432
+  }
+ ],
+ "artistas": [
+  {
+   "artista": "George Jones",
+   "total_musicas": 332,
+   "popularidade_media": 16.07
+  },
+  {
+   "artista": "Pritam",
+   "total_musicas": 323,
+   "popularidade_media": 53.52
+  },
+  {
+   "artista": "Wolfgang Amadeus Mozart",
+   "total_musicas": 305,
+   "popularidade_media": 10.42
+  },
+  {
+   "artista": "Arijit Singh",
+   "total_musicas": 259,
+   "popularidade_media": 58.17
+  },
+  {
+   "artista": "Hank Williams",
+   "total_musicas": 243,
+   "popularidade_media": 17.1
+  },
+  {
+   "artista": "my little airport",
+   "total_musicas": 171,
+   "popularidade_media": 33.22
+  },
+  {
+   "artista": "Glee Cast",
+   "total_musicas": 170,
+   "popularidade_media": 39.86
+  },
+  {
+   "artista": "Yuvan Shankar Raja",
+   "total_musicas": 167,
+   "popularidade_media": 51.2
+  },
+  {
+   "artista": "Hillsong Worship",
+   "total_musicas": 167,
+   "popularidade_media": 44.5
+  },
+  {
+   "artista": "BTS",
+   "total_musicas": 165,
+   "popularidade_media": 68.08
+  }
+ ],
+ "improprio": [
+  {
+   "classificacao": "Explícita",
+   "total_musicas": 7704,
+   "popularidade_media": 36.89,
+   "dancabilidade_media": 0.631
+  },
+  {
+   "classificacao": "Livre",
+   "total_musicas": 82037,
+   "popularidade_media": 32.85,
+   "dancabilidade_media": 0.556
+  }
+ ],
+ "faixasPopularidade": [
+  {
+   "faixa": "0-19",
+   "total_musicas": 23034
+  },
+  {
+   "faixa": "20-39",
+   "total_musicas": 30537
+  },
+  {
+   "faixa": "40-59",
+   "total_musicas": 26364
+  },
+  {
+   "faixa": "60-79",
+   "total_musicas": 9179
+  },
+  {
+   "faixa": "80-100",
+   "total_musicas": 627
+  }
+ ],
+ "listaGeneros": [
+  "acoustic",
+  "afrobeat",
+  "alt-rock",
+  "alternative",
+  "ambient",
+  "anime",
+  "black-metal",
+  "bluegrass",
+  "blues",
+  "brazil",
+  "breakbeat",
+  "british",
+  "cantopop",
+  "chicago-house",
+  "children",
+  "chill",
+  "classical",
+  "club",
+  "comedy",
+  "country",
+  "dance",
+  "dancehall",
+  "death-metal",
+  "deep-house",
+  "detroit-techno",
+  "disco",
+  "disney",
+  "drum-and-bass",
+  "dub",
+  "dubstep",
+  "edm",
+  "electro",
+  "electronic",
+  "emo",
+  "folk",
+  "forro",
+  "french",
+  "funk",
+  "garage",
+  "german",
+  "gospel",
+  "goth",
+  "grindcore",
+  "groove",
+  "grunge",
+  "guitar",
+  "happy",
+  "hard-rock",
+  "hardcore",
+  "hardstyle",
+  "heavy-metal",
+  "hip-hop",
+  "honky-tonk",
+  "house",
+  "idm",
+  "indian",
+  "indie",
+  "indie-pop",
+  "industrial",
+  "iranian",
+  "j-dance",
+  "j-idol",
+  "j-pop",
+  "j-rock",
+  "jazz",
+  "k-pop",
+  "kids",
+  "latin",
+  "latino",
+  "malay",
+  "mandopop",
+  "metal",
+  "metalcore",
+  "minimal-techno",
+  "mpb",
+  "new-age",
+  "opera",
+  "pagode",
+  "party",
+  "piano",
+  "pop",
+  "pop-film",
+  "power-pop",
+  "progressive-house",
+  "psych-rock",
+  "punk",
+  "punk-rock",
+  "r-n-b",
+  "reggae",
+  "reggaeton",
+  "rock",
+  "rock-n-roll",
+  "rockabilly",
+  "romance",
+  "sad",
+  "salsa",
+  "samba",
+  "sertanejo",
+  "show-tunes",
+  "singer-songwriter",
+  "ska",
+  "sleep",
+  "songwriter",
+  "soul",
+  "spanish",
+  "study",
+  "swedish",
+  "synth-pop",
+  "tango",
+  "techno",
+  "trance",
+  "trip-hop",
+  "turkish",
+  "world-music"
+ ]
+}

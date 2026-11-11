@@ -1,0 +1,66 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: radial-gradient(circle at top left, #1a1f2e 0%, #0d0f16 60%);
+  color: #e8eaf2; min-height: 100vh;
+}
+.muted { color: #9aa0b4; }
+.small { font-size: 12px; }
+select, button {
+  background: #1e2130; color: #e8eaf2; border: 1px solid #2f3345;
+  border-radius: 8px; padding: 7px 10px; font: inherit; font-size: 13px; cursor: pointer;
+}
+select:hover, button:hover { border-color: #1DB954; }
+
+.app { max-width: 1400px; margin: 0 auto; padding: 24px; }
+.topo { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+.marca { display: flex; align-items: center; gap: 14px; }
+.logo { font-size: 38px; background: linear-gradient(135deg, #1DB954, #7C5CFF); border-radius: 14px; padding: 6px 10px; }
+h1 { font-size: 26px; font-weight: 800; }
+h1 span { color: #1DB954; }
+.filtros { display: flex; align-items: center; gap: 12px; }
+.filtros label { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #9aa0b4; }
+.btn-limpar { border-color: #FF5C8A55; color: #FF5C8A; }
+.badge-mock { background: #FFB54722; color: #FFB547; border: 1px solid #FFB54755; padding: 5px 10px; border-radius: 20px; font-size: 12px; }
+
+.loading-bar { height: 3px; background: linear-gradient(90deg, #1DB954, #7C5CFF, #1DB954); background-size: 200%; animation: load 1s linear infinite; border-radius: 3px; margin-bottom: 12px; }
+@keyframes load { to { background-position: -200% 0; } }
+.carregando { opacity: .6; transition: opacity .2s; }
+
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin-bottom: 20px; }
+.kpi {
+  display: flex; gap: 12px; align-items: center; padding: 16px;
+  background: #151823; border: 1px solid #23273a; border-radius: 14px;
+  border-left: 4px solid var(--kpi-cor); transition: transform .15s;
+}
+.kpi:hover { transform: translateY(-3px); }
+.kpi-icone { font-size: 26px; }
+.kpi-rotulo { font-size: 12px; color: #9aa0b4; text-transform: uppercase; letter-spacing: .5px; }
+.kpi-valor { font-size: 24px; font-weight: 800; color: var(--kpi-cor); }
+.kpi-detalhe { font-size: 11px; color: #9aa0b4; }
+
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.span-2 { grid-column: span 2; }
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } .span-2 { grid-column: span 1; } }
+
+.card { background: #151823; border: 1px solid #23273a; border-radius: 16px; padding: 18px; }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; gap: 10px; }
+.card-header h3 { font-size: 16px; font-weight: 700; }
+.card-header p { font-size: 12px; margin-top: 2px; }
+
+.tabela-wrap { overflow-x: auto; max-height: 460px; overflow-y: auto; }
+.tabela { width: 100%; border-collapse: collapse; font-size: 13px; }
+.tabela th { text-align: left; color: #9aa0b4; font-weight: 600; padding: 10px; border-bottom: 1px solid #23273a; position: sticky; top: 0; background: #151823; }
+.tabela td { padding: 10px; border-bottom: 1px solid #1e2130; vertical-align: middle; }
+.tabela tr:hover td { background: #1b1f2d; }
+.rank { font-weight: 800; color: #1DB954; }
+.musica-titulo { font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.tag-e { background: #FF5C8A; color: #fff; font-size: 10px; padding: 1px 5px; border-radius: 4px; font-weight: 700; }
+.chip { display: inline-block; background: #7C5CFF22; color: #b8a8ff; padding: 2px 8px; border-radius: 12px; font-size: 11px; margin: 2px; }
+.barra { width: 80px; height: 6px; background: #23273a; border-radius: 4px; display: inline-block; margin-right: 6px; vertical-align: middle; }
+.barra div { height: 100%; background: linear-gradient(90deg, #1DB954, #2EC5FF); border-radius: 4px; }
+
+.mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
+.mini-stats div { display: flex; flex-direction: column; gap: 2px; font-size: 12px; background: #1b1f2d; padding: 10px; border-radius: 10px; }
+
+.rodape { text-align: center; font-size: 12px; margin-top: 30px; }
