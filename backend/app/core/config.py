@@ -1,7 +1,7 @@
 from pathlib import Path
 from pydantic_settings import BaseSettings
 
-BASE_DIR = Path(__file__).resolve().parents[3]  # raiz do ProjetoJukebox
+BACKEND_DIR = Path(__file__).resolve().parents[2]  # pasta backend
 
 
 class Settings(BaseSettings):
@@ -11,7 +11,7 @@ class Settings(BaseSettings):
 
     # "csv" enquanto o banco não está pronto; trocar para "mysql" na integração
     DATA_SOURCE: str = "csv"
-    CSV_PATH: str = str(BASE_DIR / "dataset.csv")
+    CSV_PATH: str = str(BACKEND_DIR / "data" / "dataset.csv")
 
     # MySQL (preenchido pelos colegas do banco via .env)
     DB_HOST: str = "localhost"
