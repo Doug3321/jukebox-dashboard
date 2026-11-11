@@ -53,3 +53,35 @@ class CsvMusicaRepository(MusicaRepository):
 
     def buscar_por_id(self, id_musica: str) -> Musica | None:
         return self._musicas.get(id_musica)
+
+    def criar(self, musica: Musica) -> Musica:
+        self._musicas[musica.id_musica] = musica
+        return musica
+
+    def atualizar_musica(self, id_musica: str, novo_titulo: str) -> bool:
+        if id_musica in self._musicas:
+            self._musicas[id_musica].titulo_musica = novo_titulo
+            return True
+        return False
+
+    def atualizar_artista(self, nome_antigo: str, novo_nome: str) -> int:
+        count = 0
+        for m in self._musicas.values():
+            if nome_antigo in m.artistas:
+                m.artistas = [novo_nome if a == nome_antigo else a for a in m.artistas]
+                count += 1
+        return count
+
+    def atualizar_album(self, nome_antigo: str, novo_nome: str) -> int:
+        count = 0
+        for m in self._musicas.values():
+            if m.nome_album == nome_antigo:
+                m.nome_album = novo_nome
+                count += 1
+        return count
+
+    def remover(self, id_musica: str) -> bool:
+        if id_musica in self._musicas:
+            del self._musicas[id_musica]
+            return True
+        return False

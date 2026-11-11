@@ -6,22 +6,55 @@ body {
 }
 .muted { color: #9aa0b4; }
 .small { font-size: 12px; }
-select, button {
+select, button, input {
   background: #1e2130; color: #e8eaf2; border: 1px solid #2f3345;
   border-radius: 8px; padding: 7px 10px; font: inherit; font-size: 13px; cursor: pointer;
 }
 select:hover, button:hover { border-color: #1DB954; }
 
 .app { max-width: 1400px; margin: 0 auto; padding: 24px; }
-.topo { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+.topo { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
 .marca { display: flex; align-items: center; gap: 14px; }
 .logo { font-size: 38px; background: linear-gradient(135deg, #1DB954, #7C5CFF); border-radius: 14px; padding: 6px 10px; }
 h1 { font-size: 26px; font-weight: 800; }
 h1 span { color: #1DB954; }
+
+.acoes-topo { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.btn-add-musica {
+  background: #1DB954; color: #0d0f16; font-weight: 700; border: none;
+  padding: 9px 16px; border-radius: 10px; display: flex; align-items: center; gap: 6px;
+  box-shadow: 0 4px 14px rgba(29, 185, 84, 0.3); transition: all 0.2s;
+}
+.btn-add-musica:hover { background: #1ed760; transform: translateY(-1px); }
+
+.btn-update-topo {
+  background: #7C5CFF22; color: #b8a8ff; border: 1px solid #7C5CFF55; font-weight: 600;
+  padding: 9px 14px; border-radius: 10px; transition: all 0.2s;
+}
+.btn-update-topo:hover { background: #7C5CFF33; border-color: #7C5CFF; }
+
 .filtros { display: flex; align-items: center; gap: 12px; }
 .filtros label { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #9aa0b4; }
 .btn-limpar { border-color: #FF5C8A55; color: #FF5C8A; }
 .badge-mock { background: #FFB54722; color: #FFB547; border: 1px solid #FFB54755; padding: 5px 10px; border-radius: 20px; font-size: 12px; }
+
+/* Banner de Notificação SQL */
+.sql-banner {
+  background: #0f131f; border: 1px solid #1DB95455; border-left: 5px solid #1DB954;
+  border-radius: 12px; padding: 14px 18px; margin-bottom: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4); animation: slideDown 0.3s ease-out;
+}
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.sql-banner-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.sql-banner-tag { background: #1DB95422; color: #1DB954; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; text-transform: uppercase; }
+.sql-banner-msg { font-size: 13px; font-weight: 600; color: #e8eaf2; flex: 1; }
+.sql-banner-close { background: transparent; border: none; color: #9aa0b4; font-size: 14px; padding: 2px 6px; cursor: pointer; }
+.sql-banner-close:hover { color: #fff; }
+.sql-banner-code {
+  background: #080a10; color: #6ee7b7; padding: 10px 14px; border-radius: 8px;
+  font-family: "Fira Code", monospace, Consolas, Courier; font-size: 12px;
+  overflow-x: auto; white-space: pre-wrap; line-height: 1.5; border: 1px solid #1c2333;
+}
 
 .loading-bar { height: 3px; background: linear-gradient(90deg, #1DB954, #7C5CFF, #1DB954); background-size: 200%; animation: load 1s linear infinite; border-radius: 3px; margin-bottom: 12px; }
 @keyframes load { to { background-position: -200% 0; } }
@@ -48,9 +81,33 @@ h1 span { color: #1DB954; }
 .card-header h3 { font-size: 16px; font-weight: 700; }
 .card-header p { font-size: 12px; margin-top: 2px; }
 
+/* Perfil do Cantor */
+.cantor-perfil {
+  display: flex; gap: 16px; align-items: center; background: #1a1e2d;
+  padding: 18px; border-radius: 14px; border: 1px solid #282d42;
+}
+.cantor-avatar {
+  font-size: 42px; background: linear-gradient(135deg, #7C5CFF, #2EC5FF);
+  border-radius: 16px; padding: 10px 14px;
+}
+.badge-stat {
+  background: #151823; border: 1px solid #2a2f42; padding: 4px 10px;
+  border-radius: 8px; font-size: 12px; color: #cbd5e1;
+}
+.badge-stat strong { color: #1DB954; }
+
+.album-card {
+  display: flex; align-items: center; gap: 12px; background: #181c2a;
+  border: 1px solid #24293d; padding: 10px 14px; border-radius: 10px;
+  transition: transform 0.15s;
+}
+.album-card:hover { transform: translateX(3px); border-color: #FFB54755; }
+.album-rank { font-weight: 800; font-size: 14px; color: #FFB547; min-width: 28px; }
+
+/* Tabela e Ações CRUD */
 .tabela-wrap { overflow-x: auto; max-height: 460px; overflow-y: auto; }
 .tabela { width: 100%; border-collapse: collapse; font-size: 13px; }
-.tabela th { text-align: left; color: #9aa0b4; font-weight: 600; padding: 10px; border-bottom: 1px solid #23273a; position: sticky; top: 0; background: #151823; }
+.tabela th { text-align: left; color: #9aa0b4; font-weight: 600; padding: 10px; border-bottom: 1px solid #23273a; position: sticky; top: 0; background: #151823; z-index: 1; }
 .tabela td { padding: 10px; border-bottom: 1px solid #1e2130; vertical-align: middle; }
 .tabela tr:hover td { background: #1b1f2d; }
 .rank { font-weight: 800; color: #1DB954; }
@@ -60,7 +117,63 @@ h1 span { color: #1DB954; }
 .barra { width: 80px; height: 6px; background: #23273a; border-radius: 4px; display: inline-block; margin-right: 6px; vertical-align: middle; }
 .barra div { height: 100%; background: linear-gradient(90deg, #1DB954, #2EC5FF); border-radius: 4px; }
 
+.btn-acao {
+  background: transparent; border: 1px solid #2d3348; border-radius: 6px;
+  padding: 4px 8px; font-size: 13px; cursor: pointer; margin-left: 5px;
+  transition: all 0.15s;
+}
+.btn-edit:hover { background: #7C5CFF22; border-color: #7C5CFF; }
+.btn-del:hover { background: #FF5C8A22; border-color: #FF5C8A; }
+
 .mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
 .mini-stats div { display: flex; flex-direction: column; gap: 2px; font-size: 12px; background: #1b1f2d; padding: 10px; border-radius: 10px; }
+
+/* Modais */
+.modal-backdrop {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(5, 7, 12, 0.75); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center; z-index: 1000;
+  padding: 20px; animation: fadeIn 0.2s ease-out;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-content {
+  background: #151824; border: 1px solid #2c3247; border-radius: 16px;
+  width: 100%; max-width: 520px; padding: 24px; box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+}
+.modal-danger { border-color: #FF5C8A55; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.modal-header h3 { font-size: 18px; font-weight: 700; color: #fff; }
+.modal-close { background: transparent; border: none; font-size: 18px; color: #9aa0b4; cursor: pointer; }
+.modal-close:hover { color: #fff; }
+
+.modal-form { display: flex; flex-direction: column; gap: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 12px; font-weight: 600; color: #9aa0b4; }
+.form-group input, .form-group select {
+  background: #1c2132; border: 1px solid #2d354d; border-radius: 8px;
+  padding: 10px 12px; color: #fff; font-size: 13px;
+}
+.form-group input:focus, .form-group select:focus {
+  outline: none; border-color: #1DB954;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.tipo-selector { display: flex; gap: 8px; }
+.btn-tipo {
+  flex: 1; background: #1a1e2d; border: 1px solid #2a3147; padding: 8px;
+  font-size: 12px; border-radius: 8px; font-weight: 600;
+}
+.btn-tipo.ativo {
+  background: #7C5CFF; color: #fff; border-color: #7C5CFF;
+}
+
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; }
+.btn-cancelar { background: #1c2132; color: #9aa0b4; border: 1px solid #2d354d; padding: 9px 16px; border-radius: 8px; }
+.btn-cancelar:hover { color: #fff; border-color: #434c6b; }
+.btn-salvar { background: #1DB954; color: #0d0f16; font-weight: 700; border: none; padding: 9px 18px; border-radius: 8px; cursor: pointer; }
+.btn-salvar:hover { background: #1ed760; }
+.btn-excluir { background: #FF5C8A; color: #fff; font-weight: 700; border: none; padding: 9px 18px; border-radius: 8px; cursor: pointer; }
+.btn-excluir:hover { background: #e04874; }
 
 .rodape { text-align: center; font-size: 12px; margin-top: 30px; }

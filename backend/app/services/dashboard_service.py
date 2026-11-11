@@ -1,11 +1,14 @@
-"""Regras de negócio / agregações do dashboard (COUNT, AVG, MAX, MIN, SUM)."""
+"""Regras de negócio / agregações do dashboard (COUNT, AVG, MAX, MIN, SUM) e operações CRUD."""
 from collections import defaultdict
 from statistics import mean
+import uuid
 
+from app.entities import Musica
 from app.repositories.musica_repository import MusicaRepository
 from app.schemas.dashboard_schema import (
-    ArtistaStatDTO, FaixaPopularidadeDTO, GeneroStatDTO,
-    ImproprioStatDTO, MusicaTopDTO, ResumoDTO,
+    AlbumSucessoDTO, ArtistaStatDTO, AtualizarItemDTO, CantorDetalheDTO,
+    CriarMusicaDTO, FaixaPopularidadeDTO, GeneroStatDTO, ImproprioStatDTO,
+    MusicaTopDTO, RespostaCrudDTO, ResumoDTO,
 )
 
 
@@ -106,3 +109,155 @@ class DashboardService:
 
     def lista_generos(self) -> list[str]:
         return sorted({g for m in self.repo.listar_todas() for g in m.generos})
+
+    # =========================================================================
+    # Consulta de Cantores (Artistas) e Álbuns de Maior Sucesso
+    # =========================================================================
+
+    def listar_cantores(self, limit: int = 150) -> list[str]:
+        contagem = defaultdict(int)
+        for m in self.repo.listar_todas():
+            for a in m.artistas:
+                contagem[a] += 1
+        ordenados = sorted(contagem.keys(), key=lambda a: contagem[a], reverse=True)
+        return ordenados[:limit]
+
+    def detalhar_cantor(self, nome_artista: str) -> CantorDetalheDTO:
+        nome_busca = nome_artista.strip().lower()
+        musicas_cantor = [
+            m for m in self.repo.listar_todas()
+            if any(a.strip().lower() == nome_busca for a in m.artistas)
+        ]
+
+        if not musicas_cantor:
+            return CantorDetalheDTO(
+                nome_artista=nome_artista, total_musicas=0,
+                popularidade_media=0, dancabilidade_media=0,
+                generos=[], musicas=[], albuns_sucesso=[]
+            )
+
+        # Agrupamento por Álbum (para listar os de maior sucesso)
+        albuns_dict = defaultdict(list)
+        for m in musicas_cantor:
+            albuns_dict[m.nome_album].append(m)
+
+        albuns_sucesso = [
+            AlbumSucessoDTO(
+                nome_album=alb,
+                total_musicas=len(ms),
+                popularidade_media=_r(mean(x.popularidade for x in ms), 1)
+            )
+            for alb, ms in albuns_dict.items()
+        ]
+        # Ordenar os álbuns pela maior popularidade média
+        albuns_sucesso.sort(key=lambda a: (a.popularidade_media, a.total_musicas), reverse=True)
+
+        # Ordenar as músicas do cantor por popularidade descrescente
+        musicas_cantor.sort(key=lambda m: m.popularidade, reverse=True)
+        musicas_dto = [
+            MusicaTopDTO(
+                id_musica=m.id_musica, titulo_musica=m.titulo_musica,
+                artistas=m.artistas, nome_album=m.nome_album, generos=m.generos,
+                popularidade=m.popularidade, dancabilidade=m.dancabilidade,
+                duracao_min=_r(m.duracao_ms / 60000), improprio=m.improprio
+            )
+            for m in musicas_cantor
+        ]
+
+        generos_cantor = sorted({g for m in musicas_cantor for g in m.generos})
+
+        return CantorDetalheDTO(
+            nome_artista=nome_artista,
+            total_musicas=len(musicas_cantor),
+            popularidade_media=_r(mean(m.popularidade for m in musicas_cantor), 1),
+            dancabilidade_media=_r(mean(m.dancabilidade for m in musicas_cantor), 3),
+            generos=generos_cantor,
+            musicas=musicas_dto,
+            albuns_sucesso=albuns_sucesso[:10]
+        )
+
+    # =========================================================================
+    # Operações CRUD (Create, Update, Delete)
+    # =========================================================================
+
+    def criar_musica(self, dados: CriarMusicaDTO) -> RespostaCrudDTO:
+        novo_id = str(uuid.uuid4())
+        duracao_ms = int(dados.duracao_min * 60000)
+
+        nova_musica = Musica(
+            id_musica=novo_id,
+            titulo_musica=dados.titulo_musica,
+            duracao_ms=duracao_ms,
+            popularidade=dados.popularidade,
+            dancabilidade=dados.dancabilidade,
+            improprio=dados.improprio,
+            id_album=dados.album,
+            nome_album=dados.album,
+            artistas=[dados.artista.strip()],
+            generos=[dados.genero.strip().lower()],
+        )
+
+        self.repo.criar(nova_musica)
+
+        sql_simulado = (
+            f"-- INSERT no Schema jukebox_db (Transação Relacional)\n"
+            f"INSERT INTO musica (id_musica, titulo_musica, duracao_ms, popularidade, dancabilidade, improprio, id_album)\n"
+            f"VALUES ('{novo_id}', '{dados.titulo_musica}', {duracao_ms}, {dados.popularidade}, {dados.dancabilidade}, {1 if dados.improprio else 0}, '{dados.album}');\n"
+            f"INSERT INTO interpreta (id_musica, id_artista) VALUES ('{novo_id}', '{dados.artista}');\n"
+            f"INSERT INTO classifica (id_musica, id_genero) VALUES ('{novo_id}', '{dados.genero}');"
+        )
+
+        return RespostaCrudDTO(
+            sucesso=True,
+            mensagem=f"Música '{dados.titulo_musica}' cadastrada com sucesso no catálogo!",
+            sql_executado=sql_simulado,
+            dados={"id_musica": novo_id, "titulo": dados.titulo_musica}
+        )
+
+    def atualizar_item(self, dados: AtualizarItemDTO) -> RespostaCrudDTO:
+        tipo = dados.tipo.strip().lower()
+        novo = dados.novo_nome.strip()
+        alvo = dados.identificador.strip()
+
+        if tipo == "musica":
+            ok = self.repo.atualizar_musica(alvo, novo)
+            if not ok:
+                return RespostaCrudDTO(sucesso=False, mensagem="Música não encontrada.", sql_executado="")
+            sql = f"UPDATE musica SET titulo_musica = '{novo}' WHERE id_musica = '{alvo}';"
+            msg = f"Nome da música atualizado para '{novo}' com sucesso!"
+
+        elif tipo == "artista":
+            qtd = self.repo.atualizar_artista(alvo, novo)
+            sql = f"UPDATE artista SET nome_artista = '{novo}' WHERE nome_artista = '{alvo}';"
+            msg = f"Nome do artista atualizado de '{alvo}' para '{novo}' em {qtd} músicas!"
+
+        elif tipo == "album":
+            qtd = self.repo.atualizar_album(alvo, novo)
+            sql = f"UPDATE album SET nome_album = '{novo}' WHERE nome_album = '{alvo}';"
+            msg = f"Nome do álbum atualizado de '{alvo}' para '{novo}' em {qtd} faixas!"
+
+        else:
+            return RespostaCrudDTO(sucesso=False, mensagem="Tipo inválido. Escolha 'musica', 'artista' ou 'album'.", sql_executado="")
+
+        return RespostaCrudDTO(sucesso=True, mensagem=msg, sql_executado=sql)
+
+    def deletar_musica(self, id_musica: str) -> RespostaCrudDTO:
+        musica = self.repo.buscar_por_id(id_musica)
+        titulo = musica.titulo_musica if musica else id_musica
+
+        removido = self.repo.remover(id_musica)
+        if not removido:
+            return RespostaCrudDTO(sucesso=False, mensagem="Música não encontrada no catálogo.", sql_executado="")
+
+        sql_executado = (
+            f"-- Exclusão Real com Integridade Referencial (ON DELETE CASCADE)\n"
+            f"DELETE FROM classifica WHERE id_musica = '{id_musica}';\n"
+            f"DELETE FROM interpreta WHERE id_musica = '{id_musica}';\n"
+            f"DELETE FROM musica WHERE id_musica = '{id_musica}';"
+        )
+
+        return RespostaCrudDTO(
+            sucesso=True,
+            mensagem=f"Música '{titulo}' foi removida permanentemente do catálogo!",
+            sql_executado=sql_executado
+        )

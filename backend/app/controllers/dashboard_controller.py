@@ -3,8 +3,9 @@ from fastapi import APIRouter, Depends, Query
 
 from app.repositories import get_musica_repository
 from app.schemas.dashboard_schema import (
-    ArtistaStatDTO, FaixaPopularidadeDTO, GeneroStatDTO,
-    ImproprioStatDTO, MusicaTopDTO, ResumoDTO,
+    ArtistaStatDTO, AtualizarItemDTO, CantorDetalheDTO, CriarMusicaDTO,
+    FaixaPopularidadeDTO, GeneroStatDTO, ImproprioStatDTO, MusicaTopDTO,
+    RespostaCrudDTO, ResumoDTO,
 )
 from app.services.dashboard_service import DashboardService
 
@@ -53,3 +54,37 @@ def faixas_popularidade(genero: str | None = None, svc: DashboardService = Depen
 @router.get("/lista-generos", response_model=list[str])
 def lista_generos(svc: DashboardService = Depends(get_service)):
     return svc.lista_generos()
+
+
+# ============================================================================
+# Endpoints do Cantor (Select de Cantores + Músicas + Álbuns de Maior Sucesso)
+# ============================================================================
+
+@router.get("/cantores/lista", response_model=list[str])
+def listar_cantores(limit: int = Query(150, ge=1, le=500), svc: DashboardService = Depends(get_service)):
+    return svc.listar_cantores(limit)
+
+
+@router.get("/cantores/detalhe", response_model=CantorDetalheDTO)
+def detalhar_cantor(nome_artista: str = Query(..., description="Nome do cantor a pesquisar"),
+                    svc: DashboardService = Depends(get_service)):
+    return svc.detalhar_cantor(nome_artista)
+
+
+# ============================================================================
+# Endpoints de Manipulação de Dados (CRUD: Insert, Update, Delete)
+# ============================================================================
+
+@router.post("/musicas", response_model=RespostaCrudDTO)
+def criar_musica(dados: CriarMusicaDTO, svc: DashboardService = Depends(get_service)):
+    return svc.criar_musica(dados)
+
+
+@router.put("/atualizar", response_model=RespostaCrudDTO)
+def atualizar_item(dados: AtualizarItemDTO, svc: DashboardService = Depends(get_service)):
+    return svc.atualizar_item(dados)
+
+
+@router.delete("/musicas/{id_musica}", response_model=RespostaCrudDTO)
+def deletar_musica(id_musica: str, svc: DashboardService = Depends(get_service)):
+    return svc.deletar_musica(id_musica)
