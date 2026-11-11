@@ -1,7 +1,7 @@
 import { useDashboardController } from "../controllers/useDashboardController";
 import ArtistasChart from "./components/ArtistasChart";
 import CantorSection from "./components/CantorSection";
-import GenerosChart from "./components/GenerosChart";
+import DancabilidadeChart from "./components/DancabilidadeChart";
 import ImproprioChart from "./components/ImproprioChart";
 import ModalAtualizar from "./components/ModalAtualizar";
 import ModalCriarMusica from "./components/ModalCriarMusica";
@@ -40,16 +40,12 @@ export default function DashboardView() {
     handleSalvarAtualizar,
     handleConfirmarDeletar,
     abrirAtualizarMusica,
-    abrirAtualizarGenerico,
     abrirDeletar,
 
     // SQL Banner
     sqlInfo,
     fecharSqlBanner,
   } = useDashboardController();
-
-  const selecionarGenero = (g) =>
-    atualizarFiltro("genero", filtros.genero === g ? "" : g);
 
   return (
     <div className="app">
@@ -60,25 +56,17 @@ export default function DashboardView() {
             <h1>
               Jukebox <span>Dashboard</span>
             </h1>
-            <p className="muted">Catálogo musical • Operações CRUD & Análise de Dados</p>
           </div>
         </div>
 
         <div className="acoes-topo">
-          {/* Botões do CRUD */}
+          {/* Botão de Adicionar Nova Música (INSERT) */}
           <button
             className="btn-add-musica"
             onClick={() => setModalCriarAberto(true)}
             title="Inserir nova música no catálogo (INSERT)"
           >
             ➕ Adicionar Música
-          </button>
-          <button
-            className="btn-update-topo"
-            onClick={abrirAtualizarGenerico}
-            title="Atualizar nome de música, artista ou álbum (UPDATE)"
-          >
-            ✏️ Atualizar
           </button>
 
           {/* Filtro de Gênero */}
@@ -140,14 +128,8 @@ export default function DashboardView() {
             onAbrirAtualizarMusica={abrirAtualizarMusica}
           />
 
-          {/* Gráficos Analíticos */}
-          <GenerosChart
-            generos={dados.generos}
-            ordenarPor={filtros.ordenarGeneros}
-            onOrdenarChange={(v) => atualizarFiltro("ordenarGeneros", v)}
-            onSelecionar={selecionarGenero}
-            generoAtivo={filtros.genero}
-          />
+          {/* 4 Gráficos Analíticos em Grade 2x2 Perfeita */}
+          <DancabilidadeChart generos={dados.generos} />
 
           <ArtistasChart artistas={dados.artistas} />
 
@@ -168,9 +150,7 @@ export default function DashboardView() {
 
       <ModalAtualizar
         aberto={modalAtualizarAberto}
-        onFechar={() => {
-          setModalAtualizarAberto(false);
-        }}
+        onFechar={() => setModalAtualizarAberto(false)}
         onSalvar={handleSalvarAtualizar}
         itemPreDefinido={itemParaAtualizar}
       />
@@ -183,7 +163,7 @@ export default function DashboardView() {
       />
 
       <footer className="rodape muted">
-        DCA3604 • Banco de Dados • UFRN 2026.2 — Projeto Jukebox • CRUD & Análise
+        DCA3604 • Banco de Dados • UFRN 2026.2 — Projeto Jukebox
       </footer>
     </div>
   );
