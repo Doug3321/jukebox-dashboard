@@ -264,6 +264,28 @@ h1 span {
 }
 .btn-excluir:hover { background: #dc2626; }
 
+.aviso-offline {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-left: 4px solid #EF4444;
+  color: #fca5a5;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 22px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.aviso-offline code {
+  background: #121829;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #00B0FF;
+  font-family: monospace;
+}
+.aviso-offline strong {
+  color: #fff;
+}
+
 .rodape-container {
   display: flex;
   flex-direction: column;

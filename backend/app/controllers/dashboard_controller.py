@@ -71,6 +71,12 @@ def detalhar_cantor(nome_artista: str = Query(..., description="Nome do cantor a
     return svc.detalhar_cantor(nome_artista)
 
 
+@router.get("/musicas/buscar", response_model=list[MusicaTopDTO])
+def buscar_musicas(q: str = Query(..., min_length=1), limit: int = Query(50, ge=1, le=200),
+                   svc: DashboardService = Depends(get_service)):
+    return svc.buscar_musicas(q, limit)
+
+
 # ============================================================================
 # Endpoints de Manipulação de Dados (CRUD: Insert, Update, Delete)
 # ============================================================================

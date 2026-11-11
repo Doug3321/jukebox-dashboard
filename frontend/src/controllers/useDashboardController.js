@@ -39,7 +39,9 @@ export function useDashboardController() {
   const [sqlInfo, setSqlInfo] = useState(null);
 
   const [loading, setLoading] = useState(true);
+  const [backendOffline, setBackendOffline] = useState(false);
   const [usandoMock, setUsandoMock] = useState(() => dashboardService.isMockAtivo());
+  const [versaoCatalogo, setVersaoCatalogo] = useState(0);
 
   const alternarMock = () => {
     const novo = !usandoMock;
@@ -47,8 +49,8 @@ export function useDashboardController() {
     setUsandoMock(novo);
   };
 
-  const carregar = useCallback(async () => {
-    setLoading(true);
+  const carregar = useCallback(async (silencioso = false) => {
+    if (!silencioso) setLoading(true);
     const { genero, limitTop, ordenarGeneros } = filtros;
     const res = await Promise.all([
       dashboardService.getResumo(genero),
@@ -62,28 +64,32 @@ export function useDashboardController() {
     ]);
 
     const [
-      resumo,
-      topMusicas,
-      generos,
-      artistas,
-      improprio,
-      faixas,
-      listaGeneros,
-      cantores,
-    ] = res.map((r) => r.data);
+      rResumo,
+      rTopMusicas,
+      rGeneros,
+      rArtistas,
+      rImproprio,
+      rFaixas,
+      rListaGeneros,
+      rCantores,
+    ] = res;
 
-    setDados({
-      resumo,
-      topMusicas,
-      generos,
-      artistas,
-      improprio,
-      faixas,
-      listaGeneros,
-      cantores: cantores || [],
+    setDados((prev) => {
+      const temDadosPrevios = prev.resumo && prev.resumo.total_musicas > 0;
+      return {
+        resumo: rResumo.erro && temDadosPrevios ? prev.resumo : rResumo.data,
+        topMusicas: rTopMusicas.erro && prev.topMusicas.length > 0 ? prev.topMusicas : rTopMusicas.data,
+        generos: rGeneros.erro && prev.generos.length > 0 ? prev.generos : rGeneros.data,
+        artistas: rArtistas.erro && prev.artistas.length > 0 ? prev.artistas : rArtistas.data,
+        improprio: rImproprio.erro && prev.improprio.length > 0 ? prev.improprio : rImproprio.data,
+        faixas: rFaixas.erro && prev.faixas.length > 0 ? prev.faixas : rFaixas.data,
+        listaGeneros: rListaGeneros.erro && prev.listaGeneros.length > 0 ? prev.listaGeneros : rListaGeneros.data,
+        cantores: rCantores.erro && prev.cantores.length > 0 ? prev.cantores : (rCantores.data || []),
+      };
     });
 
-    setLoading(false);
+    setBackendOffline(res.every((r) => r.erro));
+    if (!silencioso) setLoading(false);
   }, [filtros, usandoMock]);
 
   useEffect(() => {
@@ -121,11 +127,11 @@ export function useDashboardController() {
       mensagem: res.mensagem,
       sql_executado: res.sql_executado,
     });
-    // Recarregar os dados do dashboard e do cantor caso coincida
-    await carregar();
+    setVersaoCatalogo((v) => v + 1);
+    await carregar(true);
     if (cantorSelecionado && cantorSelecionado.toLowerCase() === formulario.artista.toLowerCase()) {
       const cRes = await dashboardService.getCantorDetalhe(cantorSelecionado);
-      setCantorDetalhe(cRes.data);
+      if (!cRes.erro) setCantorDetalhe(cRes.data);
     }
   };
 
@@ -137,10 +143,35 @@ export function useDashboardController() {
       mensagem: res.mensagem,
       sql_executado: res.sql_executado,
     });
-    await carregar();
+
+    if (dadosAtualizacao.tipo === "musica") {
+      setDados((prev) => ({
+        ...prev,
+        topMusicas: prev.topMusicas.map((m) =>
+          m.id_musica === dadosAtualizacao.identificador
+            ? { ...m, titulo_musica: dadosAtualizacao.novo_nome }
+            : m
+        ),
+      }));
+      setCantorDetalhe((prev) =>
+        prev
+          ? {
+              ...prev,
+              musicas: prev.musicas.map((m) =>
+                m.id_musica === dadosAtualizacao.identificador
+                  ? { ...m, titulo_musica: dadosAtualizacao.novo_nome }
+                  : m
+              ),
+            }
+          : prev
+      );
+    }
+
+    setVersaoCatalogo((v) => v + 1);
+    await carregar(true);
     if (cantorSelecionado) {
       const cRes = await dashboardService.getCantorDetalhe(cantorSelecionado);
-      setCantorDetalhe(cRes.data);
+      if (!cRes.erro) setCantorDetalhe(cRes.data);
     }
   };
 
@@ -152,10 +183,31 @@ export function useDashboardController() {
       mensagem: res.mensagem,
       sql_executado: res.sql_executado,
     });
-    await carregar();
+
+    // Atualização otimista imediata na tela (sem zerar dados)
+    setDados((prev) => ({
+      ...prev,
+      resumo: prev.resumo
+        ? { ...prev.resumo, total_musicas: Math.max(0, prev.resumo.total_musicas - 1) }
+        : prev.resumo,
+      topMusicas: prev.topMusicas.filter((m) => m.id_musica !== idMusica),
+    }));
+
+    setCantorDetalhe((prev) =>
+      prev
+        ? {
+            ...prev,
+            total_musicas: Math.max(0, prev.total_musicas - 1),
+            musicas: prev.musicas.filter((m) => m.id_musica !== idMusica),
+          }
+        : prev
+    );
+
+    setVersaoCatalogo((v) => v + 1);
+    await carregar(true);
     if (cantorSelecionado) {
       const cRes = await dashboardService.getCantorDetalhe(cantorSelecionado);
-      setCantorDetalhe(cRes.data);
+      if (!cRes.erro) setCantorDetalhe(cRes.data);
     }
   };
 
@@ -183,8 +235,10 @@ export function useDashboardController() {
     dados,
     filtros,
     loading,
+    backendOffline,
     usandoMock,
     alternarMock,
+    versaoCatalogo,
     atualizarFiltro,
     recarregar: carregar,
 

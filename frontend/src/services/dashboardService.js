@@ -114,6 +114,19 @@ export const dashboardService = {
       dadosVazios.cantorDetalhe(nomeArtista)
     ),
 
+  buscarMusicas: (termo, limit = 50) =>
+    get(
+      "/dashboard/musicas/buscar",
+      { q: termo, limit },
+      mock.topMusicas.filter(
+        (m) =>
+          m.titulo_musica.toLowerCase().includes(termo.toLowerCase()) ||
+          m.nome_album.toLowerCase().includes(termo.toLowerCase()) ||
+          m.artistas.some((a) => a.toLowerCase().includes(termo.toLowerCase()))
+      ),
+      []
+    ),
+
   // Operações CRUD (Create, Update, Delete)
   criarMusica: async (dados) => {
     if (mockAtivo) {

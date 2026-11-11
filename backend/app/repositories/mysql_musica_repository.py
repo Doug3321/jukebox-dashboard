@@ -1,6 +1,7 @@
 """Repositório MySQL (jukebox) — Conexão direta com o Banco de Dados Relacional.
 """
 from collections import defaultdict
+import threading
 import uuid
 from sqlalchemy import text
 
@@ -12,6 +13,7 @@ from app.repositories.musica_repository import MusicaRepository
 class MySQLMusicaRepository(MusicaRepository):
     def __init__(self):
         self._cache: list[Musica] | None = None
+        self._lock = threading.Lock()
 
     def limpar_cache(self):
         self._cache = None
@@ -19,7 +21,14 @@ class MySQLMusicaRepository(MusicaRepository):
     def listar_todas(self) -> list[Musica]:
         if self._cache is not None:
             return self._cache
+        # Evita que várias requisições simultâneas recarreguem o banco ao mesmo tempo
+        with self._lock:
+            if self._cache is not None:
+                return self._cache
+            self._cache = self._carregar_do_banco()
+            return self._cache
 
+    def _carregar_do_banco(self) -> list[Musica]:
         with get_engine().connect() as conn:
             # 1. Dicionário de Álbuns
             albuns: dict[str, str] = {}
@@ -80,8 +89,7 @@ class MySQLMusicaRepository(MusicaRepository):
                     )
                 )
 
-        self._cache = musicas
-        return self._cache
+        return musicas
 
     def buscar_por_id(self, id_musica: str) -> Musica | None:
         for m in self.listar_todas():
@@ -159,7 +167,8 @@ class MySQLMusicaRepository(MusicaRepository):
                     {"id_m": musica.id_musica, "id_g": id_gen}
                 )
 
-        self.limpar_cache()
+        if self._cache is not None:
+            self._cache = self._cache + [musica]
         return musica
 
     def atualizar_musica(self, id_musica: str, novo_titulo: str) -> bool:
@@ -170,8 +179,10 @@ class MySQLMusicaRepository(MusicaRepository):
             )
             modificado = res.rowcount > 0
 
-        if modificado:
-            self.limpar_cache()
+        if modificado and self._cache is not None:
+            for m in self._cache:
+                if m.id_musica == id_musica:
+                    m.titulo_musica = novo_titulo
         return modificado
 
     def atualizar_artista(self, nome_antigo: str, novo_nome: str) -> int:
@@ -182,8 +193,10 @@ class MySQLMusicaRepository(MusicaRepository):
             )
             linhas = res.rowcount
 
-        if linhas > 0:
-            self.limpar_cache()
+        if linhas > 0 and self._cache is not None:
+            for m in self._cache:
+                if nome_antigo in m.artistas:
+                    m.artistas = [novo_nome if a == nome_antigo else a for a in m.artistas]
         return linhas
 
     def atualizar_album(self, nome_antigo: str, novo_nome: str) -> int:
@@ -194,8 +207,10 @@ class MySQLMusicaRepository(MusicaRepository):
             )
             linhas = res.rowcount
 
-        if linhas > 0:
-            self.limpar_cache()
+        if linhas > 0 and self._cache is not None:
+            for m in self._cache:
+                if m.nome_album == nome_antigo:
+                    m.nome_album = novo_nome
         return linhas
 
     def remover(self, id_musica: str) -> bool:
@@ -205,8 +220,8 @@ class MySQLMusicaRepository(MusicaRepository):
             res = conn.execute(text("DELETE FROM musica WHERE id_musica = :id"), {"id": id_musica})
             removido = res.rowcount > 0
 
-        if removido:
-            self.limpar_cache()
+        if removido and self._cache is not None:
+            self._cache = [m for m in self._cache if m.id_musica != id_musica]
         return removido
 
 

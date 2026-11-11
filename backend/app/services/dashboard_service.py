@@ -110,6 +110,25 @@ class DashboardService:
     def lista_generos(self) -> list[str]:
         return sorted({g for m in self.repo.listar_todas() for g in m.generos})
 
+    def buscar_musicas(self, termo: str, limit: int = 50) -> list[MusicaTopDTO]:
+        t = termo.strip().lower()
+        achadas = [
+            m for m in self.repo.listar_todas()
+            if t in m.titulo_musica.lower()
+            or t in m.nome_album.lower()
+            or any(t in a.lower() for a in m.artistas)
+        ]
+        achadas.sort(key=lambda m: (-m.popularidade, m.titulo_musica))
+        return [
+            MusicaTopDTO(
+                id_musica=m.id_musica, titulo_musica=m.titulo_musica, artistas=m.artistas,
+                nome_album=m.nome_album, generos=m.generos, popularidade=m.popularidade,
+                dancabilidade=m.dancabilidade, duracao_min=_r(m.duracao_ms / 60000),
+                improprio=m.improprio,
+            )
+            for m in achadas[:limit]
+        ]
+
     # =========================================================================
     # Consulta de Cantores (Artistas) e Álbuns de Maior Sucesso
     # =========================================================================

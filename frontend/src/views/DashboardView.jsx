@@ -16,8 +16,10 @@ export default function DashboardView() {
     dados,
     filtros,
     loading,
+    backendOffline,
     usandoMock,
     alternarMock,
+    versaoCatalogo,
     atualizarFiltro,
 
     // Cantor
@@ -101,6 +103,12 @@ export default function DashboardView() {
       {/* Banner de Feedback SQL (Exibe a Query Executada para o Professor) */}
       <SqlBanner sqlInfo={sqlInfo} onFechar={fecharSqlBanner} />
 
+      {backendOffline && !usandoMock && (
+        <div className="aviso-offline">
+          <span>⚠️ <strong>Aviso:</strong> Backend desconectado na porta 8000. Inicie o servidor com <code>uvicorn app.main:app --port 8000 --reload</code> ou clique em <strong>"⚪ Usar Mock"</strong> no rodapé para visualizar dados simulados.</span>
+        </div>
+      )}
+
       {loading && <div className="loading-bar" />}
 
       <main className={loading ? "carregando" : ""}>
@@ -108,7 +116,7 @@ export default function DashboardView() {
         <ResumoKpis resumo={dados.resumo} />
 
         <div className="grid">
-          {/* SEÇÃO PRINCIPAL: Consulta por Cantor (com suas músicas e álbuns de maior sucesso) */}
+          {/* SEÇÃO PRINCIPAL: Consulta por Cantor e Pesquisa de Músicas */}
           <CantorSection
             cantores={dados.cantores}
             cantorSelecionado={cantorSelecionado}
@@ -117,6 +125,7 @@ export default function DashboardView() {
             onSelecionarCantor={setCantorSelecionado}
             onAbrirDeletar={abrirDeletar}
             onAbrirAtualizarMusica={abrirAtualizarMusica}
+            versaoCatalogo={versaoCatalogo}
           />
 
           {/* Tabela de Top Músicas (com botões de Editar e Deletar) */}

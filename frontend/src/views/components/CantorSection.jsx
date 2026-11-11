@@ -1,6 +1,7 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import Card from "../../custom/components/Card";
 import { fmtDec, fmtMin } from "../../custom/utils/formatters";
+import { dashboardService } from "../../services/dashboardService";
 
 export default function CantorSection({
   cantores,
@@ -9,11 +10,14 @@ export default function CantorSection({
   carregandoCantor,
   onSelecionarCantor,
   onAbrirDeletar,
-  onAbrirAtualizarMusica
+  onAbrirAtualizarMusica,
+  versaoCatalogo
 }) {
   const [buscaMusica, setBuscaMusica] = useState("");
   const [buscaAlbum, setBuscaAlbum] = useState("");
-  
+  const [musicasBuscaGlobal, setMusicasBuscaGlobal] = useState([]);
+  const [buscandoGlobal, setBuscandoGlobal] = useState(false);
+
   // Estado do Combobox único de Cantor
   const [dropdownAberto, setDropdownAberto] = useState(false);
   const [termoPesquisa, setTermoPesquisa] = useState("");
@@ -45,7 +49,6 @@ export default function CantorSection({
     function handleClickOutside(event) {
       if (comboboxRef.current && !comboboxRef.current.contains(event.target)) {
         setDropdownAberto(false);
-        // Se fechou sem escolher, volta para o cantor atual selecionado
         if (cantorSelecionado) {
           setTermoPesquisa(cantorSelecionado);
         }
@@ -55,7 +58,36 @@ export default function CantorSection({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [cantorSelecionado]);
 
-  // Filtragem local das músicas do cantor
+  // Busca global de músicas quando nenhum cantor está selecionado
+  useEffect(() => {
+    if (cantorSelecionado) {
+      setMusicasBuscaGlobal([]);
+      return;
+    }
+    const termo = buscaMusica.trim();
+    if (!termo) {
+      setMusicasBuscaGlobal([]);
+      setBuscandoGlobal(false);
+      return;
+    }
+
+    let cancelado = false;
+    setBuscandoGlobal(true);
+    const timer = setTimeout(async () => {
+      const res = await dashboardService.buscarMusicas(termo, 50);
+      if (!cancelado) {
+        setMusicasBuscaGlobal(res.data || []);
+        setBuscandoGlobal(false);
+      }
+    }, 200);
+
+    return () => {
+      cancelado = true;
+      clearTimeout(timer);
+    };
+  }, [buscaMusica, cantorSelecionado, versaoCatalogo]);
+
+  // Filtragem local das músicas do cantor selecionado
   const musicasFiltradas = useMemo(() => {
     if (!cantorDetalhe?.musicas) return [];
     if (!buscaMusica.trim()) return cantorDetalhe.musicas;
@@ -86,23 +118,23 @@ export default function CantorSection({
   const handleLimparCantor = () => {
     setTermoPesquisa("");
     onSelecionarCantor("");
-    setDropdownAberto(true);
+    setDropdownAberto(false);
   };
 
   return (
     <Card
-      titulo="🎤 Consulta por Cantor (Artista)"
-      subtitulo="Pesquise ou selecione um cantor em ordem alfabética para visualizar suas músicas e álbuns de sucesso"
+      titulo="🎤 Consulta por Cantor e Pesquisa de Músicas"
+      subtitulo="Pesquise qualquer música diretamente ou selecione um cantor em ordem alfabética"
       className="span-2"
       acoes={
         /* Combobox Único: Digite ou Escolha da Lista em Ordem Alfabética */
         <div className="combobox-wrapper" ref={comboboxRef}>
           <div className="combobox-input-box">
-            <span className="combobox-icon">🔍</span>
+            <span className="combobox-icon">🎤</span>
             <input
               type="text"
               className="combobox-input"
-              placeholder="Pesquisar cantor (A-Z)..."
+              placeholder="Selecionar cantor (A-Z)..."
               value={termoPesquisa}
               onFocus={() => {
                 setDropdownAberto(true);
@@ -160,13 +192,118 @@ export default function CantorSection({
         </div>
       }
     >
-      {!cantorSelecionado ? (
-        <div style={{ textAlign: "center", padding: "35px", color: "#9aa0b4" }}>
-          <span style={{ fontSize: "42px", display: "block", marginBottom: "10px" }}>🎧</span>
-          <p style={{ fontSize: "14px" }}>
-            Digite ou selecione um cantor no campo acima para explorar suas faixas, popularidade e álbuns mais ouvidos.
-          </p>
+      {/* BARRA DE PESQUISA DE MÚSICA SEMPRE VISÍVEL */}
+      <div style={{ marginBottom: "18px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <input
+            type="text"
+            placeholder={
+              cantorSelecionado
+                ? `🔍 Filtrar músicas de ${cantorSelecionado} por título ou álbum...`
+                : "🔍 Pesquisar qualquer música no catálogo por título, artista ou álbum..."
+            }
+            value={buscaMusica}
+            onChange={(e) => setBuscaMusica(e.target.value)}
+            style={{
+              width: "100%",
+              padding: "10px 14px",
+              fontSize: "13px",
+              borderRadius: "10px",
+              border: "1px solid #222f4d",
+              background: "#0d1322",
+              color: "#e2e8f0"
+            }}
+          />
+          {buscaMusica && (
+            <button
+              type="button"
+              className="btn-limpar"
+              onClick={() => setBuscaMusica("")}
+              style={{ whiteSpace: "nowrap", padding: "9px 14px" }}
+            >
+              ✕ Limpar
+            </button>
+          )}
         </div>
+      </div>
+
+      {!cantorSelecionado ? (
+        buscaMusica.trim() ? (
+          <div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
+              <h4 style={{ fontSize: "14px", fontWeight: "700", color: "#00E676" }}>
+                🎵 Resultados da pesquisa ({musicasBuscaGlobal.length})
+              </h4>
+              {buscandoGlobal && <span className="muted small">Pesquisando...</span>}
+            </div>
+
+            <div className="tabela-wrap" style={{ maxHeight: "380px" }}>
+              <table className="tabela">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Título</th>
+                    <th>Artista(s)</th>
+                    <th>Álbum</th>
+                    <th>Pop.</th>
+                    <th>Duração</th>
+                    <th style={{ textAlign: "right" }}>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {musicasBuscaGlobal.length === 0 && !buscandoGlobal ? (
+                    <tr>
+                      <td colSpan={7} style={{ textAlign: "center", padding: "20px" }} className="muted">
+                        Nenhuma música encontrada com o termo "{buscaMusica}".
+                      </td>
+                    </tr>
+                  ) : (
+                    musicasBuscaGlobal.map((m, idx) => (
+                      <tr key={m.id_musica}>
+                        <td className="rank">{idx + 1}</td>
+                        <td>
+                          <div className="musica-titulo">
+                            {m.titulo_musica}
+                            {m.improprio && <span className="tag-e">E</span>}
+                          </div>
+                        </td>
+                        <td>{m.artistas ? m.artistas.join(", ") : ""}</td>
+                        <td className="muted small">{m.nome_album}</td>
+                        <td>
+                          <span style={{ fontWeight: "700", color: "#2EC5FF" }}>{m.popularidade}</span>
+                        </td>
+                        <td>{fmtMin(m.duracao_min)}</td>
+                        <td style={{ textAlign: "right", whiteSpace: "nowrap" }}>
+                          <button
+                            className="btn-acao btn-edit"
+                            title="Editar música"
+                            onClick={() => onAbrirAtualizarMusica(m)}
+                          >
+                            ✏️
+                          </button>
+                          <button
+                            className="btn-acao btn-del"
+                            title="Excluir música"
+                            onClick={() => onAbrirDeletar(m)}
+                          >
+                            🗑️
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ) : (
+          <div style={{ textAlign: "center", padding: "25px", color: "#9aa0b4" }}>
+            <span style={{ fontSize: "38px", display: "block", marginBottom: "8px" }}>🎧</span>
+            <p style={{ fontSize: "14px" }}>
+              Digite na barra de pesquisa acima para buscar qualquer música ou selecione um cantor para explorar seus álbuns e faixas.
+            </p>
+          </div>
+        )
       ) : carregandoCantor ? (
         <div style={{ textAlign: "center", padding: "35px", color: "#1DB954" }}>
           Carregando dados de <strong>{cantorSelecionado}</strong>...
@@ -238,20 +375,13 @@ export default function CantorSection({
               </div>
             </div>
 
-            {/* Músicas do Cantor com Filtro Search */}
+            {/* Músicas do Cantor */}
             <div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
                 <h4 style={{ fontSize: "14px", fontWeight: "700", color: "#1DB954" }}>
                   🎵 Músicas ({musicasFiltradas.length})
                 </h4>
               </div>
-              <input
-                type="text"
-                placeholder="🔍 Filtrar músicas por título ou álbum..."
-                value={buscaMusica}
-                onChange={(e) => setBuscaMusica(e.target.value)}
-                style={{ width: "100%", marginBottom: "10px", padding: "6px 10px", fontSize: "12px" }}
-              />
 
               <div className="tabela-wrap" style={{ maxHeight: "360px" }}>
                 <table className="tabela">
